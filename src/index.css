@@ -275,3 +275,53 @@ body {
 .spin {
   animation: spin 1s linear infinite;
 }
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translate(-50%, 20px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+/* Touch targets */
+button, .pill, .q-card-header {
+  min-height: 44px;   /* Android accessibility minimum */
+}
+
+/* Disable hover effects on touch */
+@media (hover: none) {
+  .glass-card:hover {
+    transform: none;
+    box-shadow: var(--color-shadow);
+  }
+}
+
+/* Prevent text selection on tap */
+.nav-tab, .pill, button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Bottom safe area (notch/navigation bar) */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Momentum scrolling */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Remove 300ms tap delay */
+* {
+  touch-action: manipulation;
+}
