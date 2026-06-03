@@ -1,0 +1,277 @@
+:root[data-theme="light"] {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f8fafc;
+  --color-background-info: #e6f7f0;
+  --color-border-secondary: #e2e8f0;
+  --color-border-tertiary: #cbd5e1;
+  --color-border-info: #10b981;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+  --color-text-info: #047857;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --color-bg-body: #f1f5f9;
+  --color-header-gradient: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+  --color-accent: #6366f1;
+  --color-accent-hover: #4f46e5;
+  --color-accent-text: #ffffff;
+  --color-accent-soft: rgba(99, 102, 241, 0.08);
+  --color-shadow: rgba(0, 0, 0, 0.05) 0 4px 20px 0;
+  --color-card-shadow-hover: rgba(99, 102, 241, 0.15) 0 10px 25px -5px;
+}
+
+:root[data-theme="dark"] {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-background-primary: #1e293b;
+  --color-background-secondary: #0f172a;
+  --color-background-info: #064e3b;
+  --color-border-secondary: #334155;
+  --color-border-tertiary: #475569;
+  --color-border-info: #34d399;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-tertiary: #94a3b8;
+  --color-text-info: #a7f3d0;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --color-bg-body: #0b0f19;
+  --color-header-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --color-accent: #818cf8;
+  --color-accent-hover: #a5b4fc;
+  --color-accent-text: #0f172a;
+  --color-accent-soft: rgba(129, 140, 248, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.3) 0 4px 20px 0;
+  --color-card-shadow-hover: rgba(129, 140, 248, 0.25) 0 10px 25px -5px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-secondary);
+  box-shadow: var(--color-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  box-shadow: var(--color-card-shadow-hover);
+}
+
+/* Tab Active Indicator styling */
+.nav-tab {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-tab.active {
+  color: var(--color-accent) !important;
+}
+
+.nav-tab.active::after {
+  transform: scaleX(1);
+}
+
+/* MCQ Quiz Options styling */
+.quiz-option {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-secondary);
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  background: var(--color-background-secondary);
+  transform: translateX(4px);
+}
+
+.quiz-option.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-text-primary);
+}
+
+.quiz-option.correct {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  font-weight: 600;
+}
+
+.quiz-option.incorrect {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* 3D Flashcard styles */
+.flashcard-container {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 520px;
+  height: 320px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--color-shadow);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-secondary);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: auto;
+}
+
+.flashcard-front {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+
+.flashcard-back {
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+  transform: rotateY(180deg);
+}
+
+/* SVG custom stylings for premium diagrams */
+.mermaid-diagram-svg svg {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.mermaid-diagram-svg svg .node rect,
+.mermaid-diagram-svg svg .node circle,
+.mermaid-diagram-svg svg .node polygon,
+.mermaid-diagram-svg svg .node path {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.04));
+  stroke-width: 1.5px !important;
+  transition: all 0.2s ease;
+}
+
+.mermaid-diagram-svg svg .node:hover rect,
+.mermaid-diagram-svg svg .node:hover circle,
+.mermaid-diagram-svg svg .node:hover polygon,
+.mermaid-diagram-svg svg .node:hover path {
+  filter: drop-shadow(0 6px 12px var(--color-accent-soft)) !important;
+  stroke: var(--color-accent) !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid-diagram-svg svg .edgePath .path {
+  stroke-width: 2px !important;
+  transition: stroke-width 0.2s ease;
+}
+
+.mermaid-diagram-svg svg .edgePath:hover .path {
+  stroke: var(--color-accent) !important;
+  stroke-width: 3px !important;
+}
+
+.mermaid-diagram-svg svg .label {
+  font-family: var(--font-sans) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}

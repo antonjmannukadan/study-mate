@@ -1,0 +1,2112 @@
+{
+  "subjectCode": "MCS-231",
+  "subjectName": "IGNOU MCS-231",
+  "subjectTitle": "Mobile Computing",
+  "description": "Compiled from 6 papers: Dec 2022, Jun 2023, Jun 2024, Dec 2024, Jun 2025, Dec 2025. Click any question to reveal the answer.",
+  "stats": [
+    {
+      "value": "40",
+      "label": "Questions"
+    },
+    {
+      "value": "140",
+      "label": "Practice MCQs"
+    },
+    {
+      "value": "6",
+      "label": "Papers"
+    },
+    {
+      "value": "6",
+      "label": "Units"
+    }
+  ],
+  "categories": [
+    {
+      "id": "networks",
+      "label": "Networks"
+    },
+    {
+      "id": "wireless",
+      "label": "Wireless & Transmission"
+    },
+    {
+      "id": "arch",
+      "label": "Architecture"
+    },
+    {
+      "id": "os",
+      "label": "Mobile OS & Platforms"
+    },
+    {
+      "id": "apps",
+      "label": "Apps & Dev"
+    },
+    {
+      "id": "emerging",
+      "label": "Emerging Tech"
+    }
+  ],
+  "papers": [
+    "Dec 2022",
+    "Jun 2023",
+    "Jun 2024",
+    "Dec 2024",
+    "Jun 2025",
+    "Dec 2025"
+  ],
+  "questions": [
+    {
+      "n": 1,
+      "hot": true,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is GPRS? Explain its features and list the services offered by it.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2024"
+      ],
+      "freq": 5,
+      "answer": "**GPRS (General Packet Radio Service)** is a packet-oriented mobile data standard on the 2G and 3G cellular communication network's global system for mobile communications (GSM). It provides data rates from 56–114 kbps.\n\n**Features of GPRS:**\n- Always-on connectivity (no dial-up required)\n- Packet switching instead of circuit switching\n- Efficient use of radio spectrum (shares channels among users)\n- IP-based architecture supporting internet services\n- Supports both SMS and data simultaneously\n- Billing based on data volume, not connection time\n\n**Services offered by GPRS:**\n- Web browsing and internet access\n- MMS (Multimedia Messaging Service)\n- Email services on mobile\n- Location-based services\n- Push-to-talk and instant messaging\n- Corporate VPN access\n- WAP (Wireless Application Protocol) services\n- Streaming audio/video (limited)\n\n**GPRS Architecture Components:** Mobile Station (MS), Base Station Subsystem (BSS), SGSN (Serving GPRS Support Node), GGSN (Gateway GPRS Support Node), and HLR/VLR databases."
+    },
+    {
+      "n": 2,
+      "hot": true,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is a cellular network? Explain its various components with a neat diagram.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2025"
+      ],
+      "freq": 5,
+      "answer": "**Cellular Network** is a radio network distributed over land areas called cells, each served by at least one fixed-location transceiver (base station). Adjacent cells use different frequencies to avoid interference, but non-adjacent cells may reuse the same frequency.\n\n**Key Components:**\n\n1. **Mobile Station (MS):** The end-user device (mobile phone, tablet). Contains SIM card for subscriber identity.\n\n2. **Base Transceiver Station (BTS):** Handles radio communication with MS. Each cell has one BTS.\n\n3. **Base Station Controller (BSC):** Manages multiple BTS units. Controls handover, power levels, and radio channels.\n\n4. **Mobile Switching Center (MSC):** Core of the network. Routes calls, manages handovers, interfaces with PSTN.\n\n5. **Home Location Register (HLR):** Database storing subscriber info and current location.\n\n6. **Visitor Location Register (VLR):** Temporary database of subscribers currently in MSC's service area.\n\n7. **Authentication Center (AuC):** Provides security by authenticating subscribers.\n\n8. **Equipment Identity Register (EIR):** Database of mobile device identities (IMEI).\n\n**Frequency Reuse:** Cells are grouped into clusters (typically 7-cell clusters). Same frequencies reused in non-adjacent clusters to increase capacity while minimizing interference.\n\n**Handover:** When a mobile user moves between cells, the call is transferred from one BTS to another seamlessly — this is called handover/handoff.",
+      "diagram": "graph TD\n  MS[📱 Mobile Station] --> BTS[📡 BTS]\n  BTS --> BSC[BSC]\n  BSC --> MSC[MSC]\n  MSC --> HLR[(HLR)]\n  MSC --> VLR[(VLR)]\n  MSC --> PSTN[PSTN / Internet]"
+    },
+    {
+      "n": 3,
+      "hot": true,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "Explain mobile computing architecture with the help of a diagram.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2024",
+        "Dec 2025"
+      ],
+      "freq": 6,
+      "answer": "**Mobile Computing Architecture** describes the structural framework that enables computing on mobile devices connected to wireless networks.\n\n**Three-Tier Architecture:**\n\n**Tier 1 — Mobile Client (Presentation Layer):**\n- Mobile devices (smartphones, tablets, laptops)\n- Runs mobile OS (Android, iOS, Windows Mobile)\n- Handles user interface and local processing\n- Stores data locally in device databases\n- Communicates via wireless protocols\n\n**Tier 2 — Application Server (Logic Layer):**\n- Business logic processing\n- Handles requests from mobile clients\n- Manages sessions and transactions\n- Acts as middleware between client and data\n- Examples: Web servers, application servers\n\n**Tier 3 — Backend/Data Layer:**\n- Databases (RDBMS, NoSQL)\n- Enterprise systems, legacy systems\n- Internet/Intranet resources\n- Cloud storage and services\n\n**Communication Infrastructure:**\n- Wireless Networks: GSM, GPRS, 3G, 4G LTE, 5G, Wi-Fi, Bluetooth\n- Base Stations and Access Points connect mobile clients\n- Mobile IP handles routing for moving devices\n- Gateways bridge wireless and wired networks\n\n**Key Design Considerations:** Limited battery, bandwidth variability, intermittent connectivity, security, device heterogeneity, and context-awareness (location, time, user preferences).",
+      "diagram": "graph LR\n  subgraph Tier1[\"Tier 1 — Mobile Client\"]\n    MD[📱 Mobile Device]\n  end\n  subgraph Tier2[\"Tier 2 — App Server\"]\n    AS[🖥️ Application Server]\n  end\n  subgraph Tier3[\"Tier 3 — Backend\"]\n    DB[(🗄️ Database)]\n    ERP[ERP / Legacy]\n  end\n  MD <-->|Wireless| AS\n  AS <--> DB\n  AS <--> ERP"
+    },
+    {
+      "n": 4,
+      "hot": true,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is GSM technology? Explain its features, cells, advantages and disadvantages.",
+      "papers": [
+        "Jun 2023",
+        "Dec 2024"
+      ],
+      "freq": 4,
+      "answer": "**GSM (Global System for Mobile Communications)** is a standard for second-generation (2G) digital cellular networks. Developed by ETSI, it uses TDMA (Time Division Multiple Access) and operates in 900 MHz and 1800 MHz bands.\n\n**Features of GSM:**\n- Digital transmission (voice encoded digitally)\n- TDMA technology — up to 8 users per radio channel\n- SIM card-based subscriber identity\n- International roaming support\n- SMS support\n- Encryption for security (A5/1 algorithm)\n- Data services: 9.6 kbps (circuit-switched CSD)\n\n**Cells in GSM:**\n- **Macro cells:** Large coverage, rural areas (radius 35 km)\n- **Micro cells:** Urban areas (radius 1 km)\n- **Pico cells:** Indoor, buildings (radius 100 m)\n- **Umbrella cells:** Cover shadowed regions of other cells\n\n**Advantages:**\n- Global standardization — works in 200+ countries\n- Good voice quality with digital encoding\n- Secure communication with encryption\n- SMS capability\n- Efficient spectrum usage via TDMA\n- Wide infrastructure already deployed\n\n**Disadvantages:**\n- Limited data rates (9.6 kbps for basic GSM)\n- Susceptible to congestion in high-density areas\n- TDMA introduces latency\n- Vulnerable to IMSI catchers (security concern)\n- Requires significant infrastructure investment"
+    },
+    {
+      "n": 5,
+      "hot": true,
+      "cat": "os",
+      "unit": "Mobile OS & Platforms",
+      "text": "Draw and explain Android architecture with a neat diagram.",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 4,
+      "answer": "**Android Architecture** is a software stack with 5 main layers:\n\n**Layer 1 — Linux Kernel (Bottom):**\n- Foundation of Android OS\n- Provides hardware abstraction\n- Drivers: camera, keypad, display, audio, Wi-Fi, Bluetooth\n- Memory management, process management, security\n- Power management\n\n**Layer 2 — Hardware Abstraction Layer (HAL):**\n- Standard interfaces for hardware components\n- Allows upper layers to access hardware without kernel-level code\n- Multiple HAL modules for each hardware type\n\n**Layer 3 — Android Runtime (ART) & Native Libraries:**\n- **ART:** Replaces Dalvik VM; uses AOT (Ahead-of-Time) compilation for faster execution\n- **Native C/C++ Libraries:** OpenGL ES (graphics), SQLite (database), WebKit (browser engine), libc, SSL\n\n**Layer 4 — Java API Framework:**\n- Building blocks for Android applications\n- **Activity Manager:** Manages lifecycle of apps\n- **Content Providers:** Share data between apps\n- **Resource Manager:** Access to non-code resources (layouts, strings)\n- **Notification Manager:** Status bar notifications\n- **Window Manager, Location Manager, Package Manager**\n\n**Layer 5 — System Apps (Top):**\n- Pre-installed apps: Phone, Contacts, Browser, Camera, SMS\n- Plus user-installed apps\n- All apps written using Java/Kotlin API framework",
+      "diagram": "graph TD\n  A[\"Layer 5 — System Apps\n(Phone, Browser, Camera)\"]\n  B[\"Layer 4 — Java API Framework\n(Activity Manager, Content Providers...)\"]\n  C[\"Layer 3 — ART + Native Libraries\n(OpenGL ES, SQLite, WebKit)\"]\n  D[\"Layer 2 — HAL\n(Hardware Abstraction Layer)\"]\n  E[\"Layer 1 — Linux Kernel\n(Drivers, Memory, Security)\"]\n  A --> B --> C --> D --> E"
+    },
+    {
+      "n": 6,
+      "hot": true,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Explain J2EE architecture and J2ME components.",
+      "papers": [
+        "Dec 2022",
+        "Jun 2023",
+        "Jun 2024"
+      ],
+      "freq": 5,
+      "answer": "**J2EE (Java 2 Enterprise Edition) Architecture:**\n\nJ2EE provides a multi-tier distributed application model with reusable components.\n\n**J2EE Tiers:**\n1. **Client Tier:** Web browsers, Java applets, standalone apps\n2. **Web Tier:** JSP (JavaServer Pages), Servlets — generates dynamic web content\n3. **Business Tier:** EJBs (Enterprise JavaBeans) — business logic (Session beans, Entity beans, Message-driven beans)\n4. **EIS Tier (Enterprise Information System):** Databases, legacy systems, ERP systems\n\n**J2EE Container Types:** Web Container (runs JSP/Servlets), EJB Container (runs Enterprise Beans), Application Client Container, Applet Container.\n\n**J2EE Key APIs:** JDBC, JMS (messaging), JNDI (naming), JavaMail, JAX-RPC (web services), JTA (transactions).\n\n---\n\n**J2ME (Java 2 Micro Edition) Components:**\n\nJ2ME is the Java platform for mobile/embedded devices.\n\n**J2ME Architecture:**\n- **Configuration:** Defines JVM and core API set\n  - **CLDC (Connected Limited Device Configuration):** Low-end devices, minimal memory\n  - **CDC (Connected Device Configuration):** Higher-end devices\n- **Profile:** Adds functionality on top of configuration\n  - **MIDP (Mobile Information Device Profile):** For phones — built on CLDC. Provides UI, network, storage\n  - **PDA Profile:** For PDAs\n- **MIDlets:** J2ME applications that run on MIDP. Lifecycle: Pause, Active, Destroyed\n\n**Key J2ME APIs:** LCDUI (UI), RecordStore (storage), javax.microedition.io (networking)",
+      "diagram": "graph LR\n  CT[Client Tier] --> WT[Web Tier\nJSP / Servlets]\n  WT --> BT[Business Tier\nEJBs]\n  BT --> EIS[EIS Tier\nDB / Legacy]"
+    },
+    {
+      "n": 7,
+      "hot": true,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "What are Ad-hoc networks? Explain their features and advantages.",
+      "papers": [
+        "Dec 2022",
+        "Jun 2024",
+        "Dec 2025"
+      ],
+      "freq": 5,
+      "answer": "**Ad-hoc Networks (Mobile Ad-hoc Networks - MANets)** are self-configuring, infrastructure-less networks of mobile devices connected wirelessly. No fixed base station — each node acts as both host and router.\n\n**Features of Ad-hoc Networks:**\n- **Self-organizing:** No prior network infrastructure required\n- **Dynamic topology:** Nodes move freely; topology changes constantly\n- **Multi-hop routing:** Data can be relayed through multiple intermediate nodes\n- **Decentralized:** No central administration or control\n- **Autonomous nodes:** Each node is independent\n- **Limited bandwidth:** Wireless links have limited capacity\n- **Energy constraints:** Battery-powered nodes\n\n**Types:**\n- **MANET (Mobile Ad-hoc Network):** General mobile nodes\n- **VANET (Vehicular Ad-hoc Network):** Vehicles communicating\n- **WSN (Wireless Sensor Network):** Sensor nodes\n\n**Advantages:**\n- Quick deployment — no infrastructure needed\n- Ideal for disaster recovery, military operations, emergency services\n- Highly flexible and scalable\n- Cost-effective (no base station investment)\n- Tolerant to single point failure\n\n**Disadvantages:**\n- Security vulnerabilities (no central authentication)\n- Limited bandwidth shared among all nodes\n- Routing overhead due to dynamic topology\n- Battery consumption higher (acts as router too)\n- Interference and packet loss more common"
+    },
+    {
+      "n": 8,
+      "hot": true,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is LTE? Explain its features and how it differs from earlier generations.",
+      "papers": [
+        "Dec 2022"
+      ],
+      "freq": 3,
+      "answer": "**LTE (Long-Term Evolution)** is a standard for high-speed wireless broadband communication, marketed as 4G LTE. Developed by 3GPP, it succeeds UMTS/HSPA (3G).\n\n**Features of LTE:**\n- **High data rates:** Download up to 100 Mbps, upload up to 50 Mbps (LTE); up to 1 Gbps for LTE-Advanced\n- **Low latency:** ~10 ms (vs 100+ ms for 3G)\n- **All-IP architecture:** Voice and data both over IP (VoIP)\n- **Wider bandwidth:** Supports 1.4 MHz to 20 MHz channels\n- **OFDMA (Orthogonal Frequency Division Multiple Access):** Downlink access method\n- **SC-FDMA:** Uplink access method (efficient battery use)\n- **MIMO (Multiple Input Multiple Output):** Multiple antennas for higher throughput\n- **Flat architecture:** Fewer network nodes, reduced cost and complexity\n- **Backward compatibility:** Supports 2G/3G fallback\n\n**Comparison with earlier generations:**\n| Generation | Technology | Data Speed |\n|---|---|---|\n| 2G | GSM/GPRS | 9.6–114 kbps |\n| 3G | UMTS/HSPA | 384 kbps–14 Mbps |\n| 4G LTE | OFDMA/MIMO | 100 Mbps–1 Gbps |\n\n**LTE vs 3G:** LTE uses OFDMA instead of WCDMA, all-IP vs mixed circuit/packet, significantly lower latency, and much higher spectral efficiency."
+    },
+    {
+      "n": 9,
+      "hot": true,
+      "cat": "os",
+      "unit": "Mobile OS & Platforms",
+      "text": "Explain the architecture of iOS with its key layers.",
+      "papers": [
+        "Jun 2024"
+      ],
+      "freq": 3,
+      "answer": "**iOS Architecture** is organized into 4 abstraction layers from hardware to applications.\n\n**Layer 1 — Core OS (Bottom):**\n- Direct hardware interaction\n- Security framework, encryption, Bluetooth, ExternalAccessory\n- Grand Central Dispatch (GCD) for concurrency\n- Low-level UNIX-based interfaces\n\n**Layer 2 — Core Services:**\n- Foundational services used by higher layers\n- **Core Foundation:** Fundamental data types, collections, strings\n- **Core Data:** Object graph and persistence framework\n- **Core Location:** GPS and location services\n- **StoreKit:** In-App Purchase\n- **iCloud Storage**, **Core Motion**, **Address Book**\n\n**Layer 3 — Media Layer:**\n- Graphics and multimedia\n- **Core Graphics:** 2D rendering (Quartz)\n- **OpenGL ES:** 3D graphics\n- **Core Animation:** Smooth animations\n- **AVFoundation:** Audio/video playback and recording\n- **Core Image:** Image processing\n\n**Layer 4 — Cocoa Touch (Top):**\n- Highest-level layer; directly used by app developers\n- **UIKit:** UI components (buttons, tables, views, gestures)\n- **MapKit:** Maps integration\n- **EventKit:** Calendar and reminders\n- **Message UI, Push Notifications, Game Kit**\n\n**iOS Key Characteristics:**\n- Closed ecosystem — apps from App Store only\n- Objective-C and Swift programming languages\n- Sandbox security model — apps isolated from each other\n- Touch ID / Face ID biometric authentication",
+      "diagram": "graph TD\n  A[\"Cocoa Touch\n(UIKit, MapKit, Touch)\"]\n  B[\"Media Layer\n(AVFoundation, Core Graphics)\"]\n  C[\"Core Services\n(Core Data, Core Location)\"]\n  D[\"Core OS\n(Security, Bluetooth, GCD)\"]\n  A --> B --> C --> D"
+    },
+    {
+      "n": 10,
+      "hot": true,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain Frequency Division Multiplexing (FDM) — its advantages, disadvantages and applications.",
+      "papers": [
+        "Dec 2022",
+        "Jun 2025"
+      ],
+      "freq": 4,
+      "answer": "**FDM (Frequency Division Multiplexing)** is a technique where the total available bandwidth is divided into smaller frequency bands, and each signal is assigned a unique frequency band for transmission. All signals are transmitted simultaneously.\n\n**How FDM works:**\n- Each input signal modulates a different carrier frequency\n- Guard bands separate adjacent channels to prevent interference\n- All modulated signals are combined and transmitted simultaneously\n- At receiver, bandpass filters separate each channel\n\n**Advantages:**\n- No time-wasting synchronization required\n- Simple to implement\n- Multiple signals transmitted simultaneously\n- No propagation delay issues\n- Works well for continuous signals (analog)\n\n**Disadvantages:**\n- Bandwidth wastage due to guard bands\n- Susceptible to inter-modulation distortion\n- Not efficient for bursty digital data\n- Cross-talk between adjacent channels possible\n- Requires precise bandpass filters\n\n**Applications:**\n- Cable TV (each channel assigned a frequency band)\n- AM/FM radio broadcasting\n- Telephone systems (traditional PSTN)\n- ADSL broadband (upstream and downstream on different frequencies)\n- First-generation cellular networks (1G)\n- DSL internet connections"
+    },
+    {
+      "n": 11,
+      "hot": true,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain Time Division Multiplexing (TDM) — its advantages, disadvantages and applications.",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 3,
+      "answer": "**TDM (Time Division Multiplexing)** is a technique where multiple signals share the same channel by dividing the transmission time into slots. Each signal gets the full bandwidth but only for a short time slot.\n\n**How TDM works:**\n- Time is divided into fixed-length slots (frames)\n- Each input source is assigned one or more time slots per frame\n- At receiver, the signal is de-multiplexed based on time slots\n- **Synchronous TDM:** Fixed slots assigned even if source has no data (wastes bandwidth)\n- **Statistical TDM (Asynchronous):** Slots allocated dynamically only when data is available\n\n**Advantages:**\n- Simple synchronization — digital-friendly\n- No inter-channel interference\n- Efficient for digital data\n- Equal sharing of bandwidth\n- Easy to add/remove channels\n- No guard bands needed\n\n**Disadvantages:**\n- Synchronous TDM wastes bandwidth during idle periods\n- Requires synchronization between transmitter and receiver\n- Not ideal for varying traffic loads\n- Propagation delay introduced\n\n**Applications:**\n- GSM (2G cellular) — uses TDMA with 8 time slots per channel\n- T1/E1 telephone trunk lines\n- ISDN (Integrated Services Digital Network)\n- PCM (Pulse Code Modulation) telephony\n- Digital satellite communications"
+    },
+    {
+      "n": 12,
+      "hot": true,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain Wavelength Division Multiplexing (WDM) — advantages, disadvantages and applications.",
+      "papers": [
+        "Jun 2024",
+        "Dec 2025",
+        "Jun 2025"
+      ],
+      "freq": 5,
+      "answer": "**WDM (Wavelength Division Multiplexing)** is a fiber-optic technology that multiplexes multiple optical carrier signals on a single fiber by using different wavelengths (colors) of laser light. It is the optical equivalent of FDM.\n\n**Types of WDM:**\n- **CWDM (Coarse WDM):** 18 channels, 20 nm channel spacing, less expensive\n- **DWDM (Dense WDM):** 80+ channels, 0.8 nm spacing, very high capacity, long-distance\n- **UDWDM:** Ultra-dense for maximum channels\n\n**Advantages:**\n- Extremely high bandwidth (terabits per second)\n- Multiple independent data streams on single fiber\n- Transparent to data rates and formats\n- Easy capacity expansion (add wavelengths)\n- Cost-effective — uses existing fiber infrastructure\n- Low signal degradation\n\n**Disadvantages:**\n- Expensive equipment (lasers, multiplexers, amplifiers)\n- Complex network management\n- Chromatic dispersion limits distance\n- Non-linear effects at high power levels\n- Crosstalk between channels possible\n\n**Applications:**\n- Long-haul optical backbone networks (internet backbone)\n- Metropolitan Area Networks (MANs)\n- Cable television hybrid fiber-coaxial networks\n- Submarine cable systems (trans-oceanic)\n- Data center interconnects\n- 5G fronthaul and midhaul networks"
+    },
+    {
+      "n": 13,
+      "hot": true,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is CDMA? How does it differ from GSM?",
+      "papers": [
+        "Jun 2023",
+        "Dec 2025"
+      ],
+      "freq": 4,
+      "answer": "**CDMA (Code Division Multiple Access)** is a channel access method where multiple transmitters simultaneously send signals over a single communication channel. Each user is assigned a unique spreading code (chip code) that allows all users to transmit on the same frequency simultaneously.\n\n**How CDMA works:**\n- Each bit of data is multiplied by a unique pseudo-random noise (PN) code\n- Spreading code converts narrowband signal to wideband signal\n- All users share same frequency spectrum\n- Receiver uses the same code to extract intended signal from noise\n- Unwanted signals appear as background noise (spread spectrum)\n\n**CDMA vs GSM Comparison:**\n\n| Feature | CDMA | GSM |\n|---|---|---|\n| Access Method | Spread spectrum | TDMA |\n| Multiple Access | All on same frequency | Time slots |\n| Frequency Reuse | Can reuse frequency in all cells | 7-cell cluster typically |\n| SIM Card | No (ESN-based) | Yes (SIM card) |\n| Call Quality | Better in high-load | Slightly lower under load |\n| Security | More secure (PN code) | Encryption-based |\n| Roaming | Limited international | Excellent worldwide |\n| Standardization | Qualcomm/US centric | Global standard |\n| Used by | Verizon, Sprint (US) | Most of world |\n| Generation | 3G CDMA2000 | GSM, GPRS, EDGE |\n\n**Advantages of CDMA:** Better capacity per cell, soft handover, no frequency planning needed, more secure, less interference. **Disadvantages:** Complex power control required, less global roaming."
+    },
+    {
+      "n": 14,
+      "hot": false,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "What is WiMAX? Explain its features and applications.",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 2,
+      "answer": "**WiMAX (Worldwide Interoperability for Microwave Access)** is a wireless broadband standard based on IEEE 802.16. It provides metropolitan area network (MAN) wireless connectivity as a last-mile alternative to cable and DSL.\n\n**Features of WiMAX:**\n- **High bandwidth:** Up to 75 Mbps (802.16d), 1 Gbps theoretical\n- **Long range:** Line-of-sight up to 50 km; non-line-of-sight up to 10 km\n- **QoS support:** Four service classes for different traffic types\n- **OFDM modulation:** Efficient spectrum use\n- **Scalable bandwidth:** 1.5 MHz to 28 MHz channels\n- **Two versions:** Fixed WiMAX (802.16d) and Mobile WiMAX (802.16e)\n- **Security:** PKM-EAP authentication, AES encryption\n- **Self-backhauling:** Can use WiMAX for backhaul\n\n**Service Classes:**\n1. UGS (Unsolicited Grant Service) — real-time, constant bit rate (VoIP)\n2. rtPS (Real-time Polling) — variable rate real-time (video)\n3. nrtPS (Non-real-time Polling) — non-real-time (FTP)\n4. BE (Best Effort) — web browsing\n\n**Applications:**\n- Last-mile broadband in underserved areas\n- Backhaul for cellular networks\n- Public hotspot extensions\n- Enterprise connectivity\n- Emergency/disaster recovery communications\n- Mobile broadband alternative to 3G/4G"
+    },
+    {
+      "n": 15,
+      "hot": false,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain WLAN / Wi-Fi IEEE 802.11x networks in detail.",
+      "papers": [
+        "Jun 2024"
+      ],
+      "freq": 2,
+      "answer": "**WLAN (Wireless Local Area Network) / Wi-Fi** is based on the IEEE 802.11 family of standards, enabling wireless networking within a limited area (home, office, campus).\n\n**IEEE 802.11 Standards Evolution:**\n\n| Standard | Frequency | Max Speed | Range |\n|---|---|---|---|\n| 802.11b | 2.4 GHz | 11 Mbps | 35 m indoor |\n| 802.11a | 5 GHz | 54 Mbps | 35 m indoor |\n| 802.11g | 2.4 GHz | 54 Mbps | 38 m indoor |\n| 802.11n | 2.4/5 GHz | 600 Mbps | 70 m indoor |\n| 802.11ac (Wi-Fi 5) | 5 GHz | 3.5 Gbps | 35 m indoor |\n| 802.11ax (Wi-Fi 6) | 2.4/5/6 GHz | 9.6 Gbps | 35 m indoor |\n\n**WLAN Architecture:**\n- **Infrastructure Mode:** Access Point (AP) acts as hub; all communication through AP\n- **Ad-hoc/IBSS Mode:** Direct peer-to-peer, no AP needed\n- **ESS (Extended Service Set):** Multiple APs connected to distribution system for larger coverage\n\n**MAC Protocol:** CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance) — listens before transmitting; uses RTS/CTS for collision avoidance.\n\n**Security Standards:**\n- WEP (weak, deprecated)\n- WPA (Wi-Fi Protected Access)\n- WPA2 (AES-CCMP, current standard)\n- WPA3 (latest, strongest)\n\n**Applications:** Home networking, office LANs, hotspots, IoT device connectivity, mobile device internet access."
+    },
+    {
+      "n": 16,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Explain various phases of the development process of a mobile application.",
+      "papers": [
+        "Jun 2024"
+      ],
+      "freq": 2,
+      "answer": "**Mobile Application Development Process** follows a structured lifecycle:\n\n**Phase 1 — Research & Strategy:**\n- Identify target audience and market need\n- Competitor analysis\n- Define app purpose, goals, and KPIs\n- Choose platform (iOS, Android, cross-platform)\n- Determine monetization model\n\n**Phase 2 — Planning:**\n- Define features and functionality\n- Create product backlog / feature list\n- Resource planning (team, budget, timeline)\n- Technology stack selection\n- Project roadmap\n\n**Phase 3 — UI/UX Design:**\n- Wireframing (low-fidelity sketches)\n- Prototyping (interactive mockups — Figma, Adobe XD)\n- User testing on prototypes\n- Visual design (color, typography, icons)\n- Design approval\n\n**Phase 4 — Development:**\n- Frontend development (UI implementation)\n- Backend development (APIs, server, database)\n- API integration (third-party services)\n- Iterative sprints (Agile methodology)\n- Code reviews\n\n**Phase 5 — Testing:**\n- Unit testing, integration testing\n- Functional testing\n- Performance and load testing\n- Security testing\n- User Acceptance Testing (UAT)\n- Beta testing with real users\n\n**Phase 6 — Deployment:**\n- App Store / Play Store submission\n- Review process compliance\n- Production release\n- Post-launch monitoring\n\n**Phase 7 — Maintenance & Updates:**\n- Bug fixes\n- Feature enhancements based on feedback\n- OS compatibility updates\n- Performance optimization"
+    },
+    {
+      "n": 17,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "What is Data Synchronization in mobile computing? Explain its methods.",
+      "papers": [
+        "Jun 2023",
+        "Jun 2025"
+      ],
+      "freq": 3,
+      "answer": "**Data Synchronization** in mobile computing is the process of maintaining consistency of data between a mobile device and a server (or other devices) when the mobile device may have been offline or had intermittent connectivity.\n\n**Need for Synchronization:**\n- Mobile devices can work offline (disconnected operation)\n- When reconnected, local changes must be reconciled with server data\n- Multiple users may edit same data — conflicts must be resolved\n\n**Synchronization Methods:**\n\n**1. Full Synchronization (Bulk Sync):**\n- Complete dataset transferred every sync\n- Simple to implement\n- Inefficient for large databases\n- Suitable for small datasets\n\n**2. Incremental Synchronization:**\n- Only changes (deltas) since last sync transferred\n- Efficient bandwidth use\n- Requires change tracking (timestamps, version numbers)\n- Most common approach\n\n**3. One-way Synchronization:**\n- Data flows in one direction only (server → client or client → server)\n- Simpler, no conflict resolution needed\n- Example: News feed refresh\n\n**4. Two-way Synchronization:**\n- Changes flow both directions\n- Requires conflict detection and resolution\n- Example: Calendar sync between phone and server\n\n**Conflict Resolution Strategies:**\n- **Last-write-wins:** Most recent change prevails\n- **Server-wins:** Server data always authoritative\n- **Client-wins:** Client data always authoritative\n- **Manual resolution:** User chooses which version to keep\n\n**Sync Protocols:** SyncML (OMA DS standard), ActiveSync, CalDAV/CardDAV (calendar/contacts), rsync."
+    },
+    {
+      "n": 18,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "Explain Mobile Device Data Store methods and architecture patterns.",
+      "papers": [
+        "Jun 2024",
+        "Jun 2025",
+        "Dec 2025"
+      ],
+      "freq": 4,
+      "answer": "**Mobile Device Data Store Methods** refer to the various ways data is persisted locally on a mobile device.\n\n**1. SQLite Database:**\n- Lightweight relational database\n- Available on all major mobile platforms\n- Supports full SQL queries\n- Best for structured, relational data\n- Android: SQLiteOpenHelper / Room ORM; iOS: Core Data / FMDB\n\n**2. SharedPreferences / NSUserDefaults:**\n- Key-value pair storage\n- Android: SharedPreferences; iOS: NSUserDefaults\n- Best for small configuration/setting data\n- Not suitable for large or complex data\n\n**3. File System Storage:**\n- Read/write files to device storage\n- Internal storage (private) vs External storage (SD card)\n- Best for binary files, media, documents\n- Requires permission management\n\n**4. Content Providers (Android):**\n- Shares structured data between applications\n- Standard interface for accessing data\n- Examples: Contacts, Calendar, Media Store\n\n**5. NoSQL/Object Storage:**\n- Realm Database: Object-oriented mobile database\n- Couchbase Lite: Document-based, sync-ready\n- Best for document or graph-structured data\n\n**6. Cloud/Remote Storage:**\n- Firebase Realtime Database, Firestore\n- AWS Amplify, Azure Mobile Apps\n- Data synced between device and cloud\n\n**Architecture Patterns for Data Store:**\n- **Repository Pattern:** Abstract data source from business logic\n- **MVVM (Model-View-ViewModel):** Separates UI from data layer\n- **DAO (Data Access Object):** Interface for database operations\n- **Caching Strategy:** Store frequently accessed data locally to reduce network calls"
+    },
+    {
+      "n": 19,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Write a short note on Mobile Commerce (M-Commerce).",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 2,
+      "answer": "**M-Commerce (Mobile Commerce)** refers to buying and selling of goods and services through wireless handheld devices such as smartphones and tablets. It is an extension of e-commerce conducted over wireless networks.\n\n**Key Features:**\n- Ubiquity — accessible anywhere, anytime\n- Personalization — tailored to individual users\n- Location-awareness — location-based offers and services\n- Convenience — purchase without a desktop computer\n- Immediacy — real-time transactions\n\n**Types of M-Commerce:**\n1. **Mobile Shopping:** Purchasing products via apps or mobile websites (Amazon, Flipkart)\n2. **Mobile Banking:** Checking balances, fund transfer, bill payment (banking apps)\n3. **Mobile Payments:** Contactless payments using NFC (Google Pay, Apple Pay, PhonePe)\n4. **Mobile Ticketing:** Airlines, cinema, events booking on phone\n5. **Mobile Brokerage:** Stock trading on smartphones\n6. **Mobile Advertising:** Location-targeted ads delivered to mobile users\n7. **Mobile Auctions:** Bidding via smartphones\n\n**Advantages:**\n- Convenience and accessibility 24/7\n- Location-based personalized services\n- Faster transaction processing\n- Wider market reach\n\n**Challenges:**\n- Screen size limitations for browsing\n- Security concerns (payment fraud)\n- Network connectivity issues\n- Device fragmentation\n- Privacy concerns\n\n**Technologies enabling M-Commerce:** 4G/5G, NFC, QR codes, mobile wallets, SSL/TLS security."
+    },
+    {
+      "n": 20,
+      "hot": false,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "What is guided transmission? How does it differ from unguided transmission? Give examples.",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 2,
+      "answer": "**Guided Transmission (Wired/Bounded Media):** Signal is directed along a physical path using a conductor. The medium confines and guides the signal.\n\n**Examples of Guided Media:**\n1. **Twisted Pair Cable:** Two insulated copper wires twisted together. UTP (Unshielded) used in Ethernet; STP (Shielded) for less interference. Speed: up to 10 Gbps. Used in LANs, telephone lines.\n2. **Coaxial Cable:** Inner conductor surrounded by insulation and outer conductor. Suitable for long-distance, less interference. Used in cable TV, older Ethernet.\n3. **Fiber Optic Cable:** Light pulses through glass/plastic core. Very high bandwidth (terabits), immune to EMI, long distances. Used in backbone networks, internet infrastructure.\n\n**Unguided Transmission (Wireless/Unbounded Media):** Signal propagates through air (or vacuum) without a physical conductor.\n\n**Examples of Unguided Media:**\n1. **Radio waves:** Omnidirectional, penetrate walls. AM/FM radio, Wi-Fi, Bluetooth, cellular networks.\n2. **Microwaves:** Directional, line-of-sight. Satellite communication, 5G, microwave links.\n3. **Infrared:** Short-range, line-of-sight. TV remotes, old IrDA data transfer.\n\n**Comparison:**\n\n| Feature | Guided | Unguided |\n|---|---|---|\n| Medium | Physical cable | Air/free space |\n| Security | More secure | Vulnerable to eavesdropping |\n| Mobility | Fixed | Mobile |\n| Installation | Complex wiring | Easy to deploy |\n| Range | Limited by cable length | Can cover large areas |\n| Interference | Less susceptible | More susceptible to EMI |\n| Cost | Higher installation | Lower deployment cost |"
+    },
+    {
+      "n": 21,
+      "hot": false,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "What is an antenna? Explain its functionality and the factors on which its size depends.",
+      "papers": [
+        "Jun 2023",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**Antenna** is a transducer that converts electrical signals into electromagnetic waves (for transmission) and electromagnetic waves back into electrical signals (for reception). It is the interface between guided and unguided transmission.\n\n**Functionality of an Antenna:**\n- **Transmission:** Converts alternating current (AC) from transmitter into electromagnetic radiation\n- **Reception:** Captures electromagnetic waves and converts to electrical current\n- **Directivity:** Focuses energy in specific directions (directional antennas) or radiates equally in all directions (omnidirectional)\n- **Gain:** Measure of antenna's ability to concentrate energy in a particular direction\n- **Impedance matching:** Antenna matches transmitter/receiver impedance to free space (377 ohms)\n\n**Types of Antennas:**\n- **Omnidirectional:** Radiates equally in horizontal plane (dipole, monopole) — used in mobile phones, Wi-Fi APs\n- **Directional/Yagi:** Focuses energy in one direction — used in TV reception, point-to-point links\n- **Parabolic dish:** Highly directional — satellite communication\n- **Array antennas:** Multiple elements — MIMO, beamforming in 5G\n\n**Factors determining Antenna Size:**\n\n1. **Wavelength (λ):** Antenna size is directly proportional to wavelength. λ = c/f (c = speed of light, f = frequency). A half-wave dipole = λ/2 in length.\n\n2. **Frequency:** Higher frequency → shorter wavelength → smaller antenna. GSM 900 MHz antenna is physically larger than a 2.4 GHz Wi-Fi antenna.\n\n3. **Gain requirement:** Higher gain requires larger antenna or antenna arrays.\n\n4. **Application:** Base station antennas are larger than handheld device antennas due to no size constraints."
+    },
+    {
+      "n": 22,
+      "hot": false,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "Explain the features of a 4G network and how it differs from 3G.",
+      "papers": [
+        "Jun 2023",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**4G (Fourth Generation)** mobile network standard, defined by ITU as IMT-Advanced. Main implementations: LTE (Long-Term Evolution) and WiMAX.\n\n**Features of 4G:**\n- **High data rates:** 100 Mbps for mobile users, 1 Gbps for stationary (LTE-Advanced)\n- **Low latency:** ~10 ms (vs 100+ ms for 3G)\n- **All-IP network:** Voice and data over IP (VoLTE — Voice over LTE)\n- **OFDMA downlink, SC-FDMA uplink**\n- **MIMO antennas:** Multiple antennas for increased throughput\n- **Wider channels:** Up to 20 MHz (vs 5 MHz for 3G)\n- **QoS support:** Prioritizes different types of traffic\n- **Enhanced security:** 128-bit AES encryption\n- **Improved spectral efficiency:** 3× better than 3G\n- **Self-Organizing Networks (SON):** Automatic optimization\n\n**4G vs 3G:**\n\n| Feature | 3G (UMTS/HSPA) | 4G (LTE) |\n|---|---|---|\n| Peak Download | 14 Mbps | 100–1000 Mbps |\n| Latency | 100–500 ms | 10–50 ms |\n| Architecture | Circuit + Packet | All-IP |\n| Voice | Circuit-switched | VoLTE (packet) |\n| Multiple Access | WCDMA | OFDMA |\n| Frequency | 2.1 GHz | 700 MHz–2.6 GHz |\n\n**Applications enabled by 4G:** HD video streaming, mobile gaming, IoT connectivity, real-time video conferencing, cloud-based apps."
+    },
+    {
+      "n": 23,
+      "hot": false,
+      "cat": "networks",
+      "unit": "Mobile Networks",
+      "text": "Explain soft handover and hard handover in mobile networks.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**Handover (Handoff)** is the process of transferring an ongoing call or data session from one cell (base station) to another as a mobile user moves between cells. Without handover, calls would drop as signal weakens.\n\n**Hard Handover (Break-Before-Make):**\n- Connection to current base station is broken BEFORE new connection established\n- Used in GSM (TDMA) networks\n- Momentary interruption during handover\n- Only one base station serves the mobile at a time\n- Less complex, less resource-intensive\n- Types:\n  - **Intra-cell:** Between sectors of same cell\n  - **Inter-cell:** Between different cells of same BSC\n  - **Inter-BSC:** Between cells of different BSCs\n  - **Inter-MSC:** Between cells of different MSCs\n\n**Soft Handover (Make-Before-Break):**\n- New connection established BEFORE old connection is released\n- Used in CDMA networks (same frequency for all cells)\n- Mobile communicates with multiple base stations simultaneously\n- BSC/RNC combines signals from multiple sources (macro diversity)\n- No interruption during handover\n- Better voice/data quality during transition\n- Uses more network resources (multiple channels active)\n\n**Softer Handover (CDMA):**\n- Handover between sectors of the SAME base station\n- Even simpler than soft handover — handled at sector level\n\n**Handover Decision Factors:**\n- Received signal strength (RSSI)\n- Signal-to-interference ratio (SIR)\n- Cell load balancing\n- User velocity"
+    },
+    {
+      "n": 24,
+      "hot": false,
+      "cat": "emerging",
+      "unit": "Emerging Technologies",
+      "text": "Explain the features of a 5G network and its advantages.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**5G (Fifth Generation)** mobile network — the successor to 4G LTE, standardized by 3GPP Release 15+. Designed not just for mobile broadband but also for massive IoT and ultra-reliable low-latency communications.\n\n**Features of 5G:**\n- **Extreme data rates:** Peak 20 Gbps download, 10 Gbps upload\n- **Ultra-low latency:** 1 ms (vs 10 ms for 4G) — enables real-time control\n- **Massive connectivity:** 1 million devices per km² (vs 100K for 4G)\n- **Network slicing:** Virtual networks tailored for specific use cases\n- **Millimeter wave (mmWave):** High frequency (24–100 GHz) for dense urban capacity\n- **Sub-6 GHz bands:** For wide coverage\n- **Massive MIMO:** Hundreds of antennas at base station\n- **Beamforming:** Focuses signal toward specific users\n- **Edge computing integration:** Processing close to the user\n- **Dynamic Spectrum Sharing (DSS):** Share spectrum with 4G\n\n**5G Use Cases (IMT-2020 requirements):**\n1. **eMBB (Enhanced Mobile Broadband):** HD/4K/8K streaming, AR/VR, fixed wireless access\n2. **mMTC (Massive Machine-Type Communications):** Smart cities, agriculture sensors, industrial IoT\n3. **URLLC (Ultra-Reliable Low-Latency):** Autonomous vehicles, remote surgery, industrial automation\n\n**Advantages:** Enables autonomous vehicles, Industry 4.0, smart cities, remote healthcare, immersive AR/VR experiences.\n\n**Challenges:** High infrastructure cost, mmWave limited range, health concerns debate, security in 5G network slicing."
+    },
+    {
+      "n": 25,
+      "hot": false,
+      "cat": "emerging",
+      "unit": "Emerging Technologies",
+      "text": "Explain Mobile Cloud Computing and its advantages for users.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**Mobile Cloud Computing (MCC)** is a model that combines mobile computing, cloud computing, and wireless networks to provide rich computational resources to mobile users, network operators, and cloud computing providers.\n\n**Architecture of MCC:**\n- **Mobile Device:** Thin client — handles UI, input, minimal processing\n- **Wireless Network:** Connects device to internet (3G/4G/5G/Wi-Fi)\n- **Internet:** Routes requests to cloud\n- **Cloud Infrastructure:** Servers, storage, processing (IaaS/PaaS/SaaS)\n- **Mobile Backend Services:** API gateways, authentication, push notifications\n\n**Cloudlet / Mobile Edge Computing:**\n- Small-scale cloud datacenter close to the user\n- Reduces latency vs distant cloud\n- Offloads computation from device to nearby server\n\n**Advantages for Users:**\n1. **Extended battery life:** Heavy computation offloaded to cloud, saving device battery\n2. **Extended storage:** Cloud provides unlimited storage (Google Drive, iCloud, Dropbox)\n3. **Improved reliability:** Data backed up; app continues from any device\n4. **Access to powerful processing:** Machine learning, image recognition run on cloud\n5. **Lower device cost:** No need for expensive hardware; cheap thin clients\n6. **Data sharing and collaboration:** Real-time collaborative editing (Google Docs)\n7. **On-demand scaling:** Resources scale automatically with demand\n8. **Cross-device access:** Same data accessible from phone, tablet, desktop\n\n**Challenges:** Latency for real-time apps, data privacy, bandwidth costs, offline functionality.",
+      "diagram": "graph LR\n  MD[📱 Mobile Device] -->|WiFi/4G/5G| NET[Internet]\n  NET --> CLD[☁️ Cloud\nIaaS/PaaS/SaaS]\n  NET --> CL[Cloudlet\nEdge Server]\n  CLD --> DB[(Storage)]\n  CLD --> CPU[Compute]"
+    },
+    {
+      "n": 26,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "What is XML? Explain XML parsing with an example.",
+      "papers": [
+        "Jun 2024",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**XML (eXtensible Markup Language)** is a markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. Unlike HTML, XML tags are custom-defined and describe the data they contain.\n\n**Features of XML:**\n- Platform-independent and language-independent\n- Self-descriptive (tags describe content meaning)\n- Supports Unicode (international text)\n- Hierarchical, tree-structured data\n- Supports attributes and namespaces\n- Validated by DTD or XML Schema (XSD)\n\n**XML Example:**\n```xml\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<students>\n  <student id=\"101\">\n    <name>Rahul Kumar</name>\n    <course>MCA</course>\n    <semester>4</semester>\n  </student>\n  <student id=\"102\">\n    <name>Priya Singh</name>\n    <course>MCA</course>\n    <semester>2</semester>\n  </student>\n</students>\n```\n\n**XML Parsing in Mobile (Android):**\n\n**1. DOM Parser (Document Object Model):**\n- Loads entire XML into memory as tree\n- Easy navigation but high memory usage\n- Best for small documents\n\n**2. SAX Parser (Simple API for XML):**\n- Event-driven, sequential parsing\n- Low memory footprint — doesn't load entire document\n- Best for large documents on mobile\n- Events: startElement, endElement, characters\n\n**3. XMLPullParser (Android recommended):**\n- Pull-based parsing — developer controls when to get next event\n- Efficient for mobile, low memory\n- Used by Android system internally\n\n**Use in Mobile:** XML used for web service responses (SOAP), configuration files, layouts (Android XML layouts), and data exchange between apps and servers."
+    },
+    {
+      "n": 27,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Write a short note on the Swift programming language for iOS development.",
+      "papers": [
+        "Jun 2024"
+      ],
+      "freq": 2,
+      "answer": "**Swift** is a powerful, intuitive, open-source programming language developed by Apple in 2014. It was designed to replace Objective-C for iOS, macOS, watchOS, and tvOS development.\n\n**Key Features of Swift:**\n- **Type Safety & Type Inference:** Compiler enforces type correctness; types often inferred automatically\n- **Optionals:** Safe handling of nil values (no null pointer crashes)\n- **Closures:** Expressive first-class functions\n- **Generics:** Reusable, flexible code\n- **Protocols & Protocol-Oriented Programming:** Swift's core design paradigm\n- **Memory Management:** ARC (Automatic Reference Counting) — no manual memory management\n- **Error Handling:** try/catch/throw mechanism\n- **Playgrounds:** Interactive coding environment for experimentation\n- **Open source:** Available on Linux as well\n\n**Swift vs Objective-C:**\n- Cleaner, modern syntax (no header files, no semicolons required)\n- Faster execution (2× faster than Objective-C per Apple benchmarks)\n- Safer (optionals prevent many common crashes)\n- Interoperable with existing Objective-C code\n- Actively developed with new features\n\n**Swift for Mobile Development:**\n- **UIKit:** Traditional imperative UI framework (iOS 2–present)\n- **SwiftUI:** Modern declarative UI framework (iOS 13+)\n- **Xcode:** Official IDE for Swift development\n- **Swift Package Manager:** Dependency management\n\n**Example:**\n```swift\nvar greeting: String = \"Hello, IGNOU\"\nlet pi: Double = 3.14159\nfunc add(_ a: Int, _ b: Int) -> Int { return a + b }\n```"
+    },
+    {
+      "n": 28,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Explain the architecture of a content management application for mobile.",
+      "papers": [
+        "Jun 2024"
+      ],
+      "freq": 2,
+      "answer": "**Content Management Application (CMA)** architecture for mobile follows a layered design that separates content creation, management, storage, and delivery.\n\n**Architecture Layers:**\n\n**1. Presentation Layer (Mobile Client):**\n- Native or hybrid mobile app (iOS/Android)\n- Content consumption UI: lists, article views, media players\n- Content creation UI: text editors, image upload, forms\n- Caching for offline reading\n\n**2. Application Layer (Business Logic):**\n- Content Delivery API (REST/GraphQL)\n- Authentication & Authorization (OAuth 2.0, JWT)\n- Content processing: search, filtering, pagination\n- Workflow management (draft → review → publish)\n- Push notification service\n\n**3. Content Repository Layer:**\n- **CMS Core:** Content models (articles, images, videos, metadata)\n- **Version control:** Track changes, rollback content\n- **DAM (Digital Asset Management):** Store and manage media files\n- **CDN Integration:** Global content delivery for images/videos\n\n**4. Data Storage Layer:**\n- **Relational DB:** Content metadata (MySQL, PostgreSQL)\n- **Object Storage:** Media files (S3, Google Cloud Storage)\n- **Search Index:** Full-text search (Elasticsearch)\n- **Cache:** Redis for frequently accessed content\n\n**Key Concepts:**\n- **Headless CMS:** Backend-only; delivers content via API to any frontend (mobile, web, IoT)\n- **Responsive Content:** Adapts to screen size (thumbnails vs full images)\n- **Offline Support:** Cache articles for offline reading\n- **Example CMSes:** Contentful, Sanity, Strapi for mobile-first content delivery"
+    },
+    {
+      "n": 29,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "What is Mobile IP? Explain its objective and working with a diagram.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**Mobile IP** is an Internet Engineering Task Force (IETF) standard protocol (RFC 3344 for IPv4, RFC 6275 for IPv6) that allows a mobile node to maintain its IP address while moving from one network to another. Without Mobile IP, moving networks changes your IP, breaking connections.\n\n**Objective of Mobile IP:**\n- Enable uninterrupted communication as mobile nodes move between networks\n- Allow a node to use two IP addresses: a permanent home address and a temporary care-of address\n- Transparent to higher-layer protocols (TCP sessions survive movement)\n- Maintain reachability with existing correspondents without changing IP\n\n**Key Entities:**\n\n1. **Mobile Node (MN):** Device that moves between networks (smartphone, laptop)\n2. **Home Agent (HA):** Router on the home network that maintains location of MN; intercepts packets for MN when it is away\n3. **Foreign Agent (FA):** Router on visited network that provides routing services to MN\n4. **Correspondent Node (CN):** Host communicating with MN\n5. **Home Address:** Permanent IP address of MN\n6. **Care-of Address (CoA):** Temporary IP address at foreign network\n\n**Working of Mobile IP:**\n\n1. MN arrives in foreign network; gets Care-of Address from FA\n2. MN registers its CoA with HA (Registration Request/Reply)\n3. CN sends packet to MN's Home Address\n4. HA intercepts the packet; **tunnels** it to CoA (IP-in-IP encapsulation)\n5. FA receives tunneled packet; strips outer header; delivers to MN\n6. MN replies directly to CN (triangle routing) or via HA\n7. When MN returns home, deregisters with HA\n\n**Route Optimization:** Allows CN to send directly to CoA, bypassing HA for efficiency."
+    },
+    {
+      "n": 30,
+      "hot": false,
+      "cat": "os",
+      "unit": "Mobile OS & Platforms",
+      "text": "Explain the functions of a mobile operating system.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**Mobile Operating System (Mobile OS)** is software that manages hardware resources of a mobile device and provides services to applications. Examples: Android, iOS, Windows Phone, Symbian.\n\n**Functions of a Mobile OS:**\n\n**1. Process Management:**\n- Manages running applications and background services\n- Multitasking: switches between foreground and background apps\n- Process scheduling and prioritization\n- Kills background processes to free memory (important for mobile)\n\n**2. Memory Management:**\n- Manages limited RAM efficiently\n- Virtual memory management\n- Garbage collection (Android/Java)\n- ARC (iOS/Swift) — automatic memory management\n\n**3. File System Management:**\n- Manages internal and external storage\n- Provides file access APIs to apps\n- Manages sandboxing (each app's private storage)\n- Handles SD card mounting/unmounting\n\n**4. Device Driver Management:**\n- Interfaces with hardware: camera, GPS, accelerometer, gyroscope, NFC, Bluetooth\n- Provides hardware abstraction layer\n- Manages peripheral connections (USB, Bluetooth accessories)\n\n**5. Security Management:**\n- User authentication (PIN, fingerprint, face recognition)\n- App sandboxing (isolates apps from each other)\n- Permission system (camera, location, contacts access)\n- Encryption of device data\n- Secure boot\n\n**6. Network Management:**\n- Manages Wi-Fi, cellular, Bluetooth, NFC connections\n- Network selection and switching\n- Mobile IP / VPN support\n\n**7. Power Management:**\n- Battery level monitoring\n- CPU frequency scaling (performance modes)\n- App background activity restrictions\n- Doze mode / battery optimization\n\n**8. UI Management:**\n- Touch input handling (gestures, multi-touch)\n- Screen rendering and display management\n- Notification system\n- Accessibility services"
+    },
+    {
+      "n": 31,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "Explain thick client and thin client architectures in mobile computing.",
+      "papers": [
+        "Dec 2024",
+        "Jun 2025"
+      ],
+      "freq": 3,
+      "answer": "**Client Architecture** in mobile computing refers to how processing is divided between the mobile device (client) and the server.\n\n---\n\n**Thick Client (Fat Client) Architecture:**\n\nA thick client performs significant processing locally on the mobile device.\n\n**Characteristics:**\n- Most business logic runs on the device\n- Large local data storage (local database)\n- Works offline without server connection\n- Rich, responsive UI (native performance)\n- Periodic sync with server\n\n**Advantages:**\n- Fast UI response (no network dependency for interactions)\n- Works offline\n- Lower server load\n- Better user experience\n\n**Disadvantages:**\n- Higher device hardware requirements\n- Larger app size\n- Updates require new app version download\n- Security risk — logic/data on device\n\n**Examples:** Native mobile banking apps, games, photo editors, email apps (offline mode)\n\n---\n\n**Thin Client Architecture:**\n\nA thin client relies heavily on the server for processing; device mainly handles display.\n\n**Characteristics:**\n- Business logic runs on server\n- Minimal local storage\n- Requires constant server connection\n- UI typically web-based or simple native wrapper\n- Server sends rendered content or data\n\n**Advantages:**\n- Low hardware requirements on device\n- Easier to update (server-side changes)\n- Better data security (data stays on server)\n- Lower device storage needs\n\n**Disadvantages:**\n- Requires reliable network connection\n- Higher server load and cost\n- Latency affects responsiveness\n- Poor offline experience\n\n**Examples:** Web browsers accessing web apps, terminal emulators, streaming services (Netflix), web-based enterprise apps\n\n---\n\n**Smart Client** is a middle ground — has a rich UI and some local processing, but depends on servers for backend services. Modern apps (WhatsApp, Uber) are typically smart clients."
+    },
+    {
+      "n": 32,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "Explain data replication methods in mobile computing.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**Data Replication** in mobile computing refers to the process of storing copies of data on multiple devices or servers to improve availability, reliability, and performance for mobile users.\n\n**Need for Replication in Mobile Computing:**\n- Mobile users face intermittent connectivity\n- Disconnected operations require local data\n- Reduce latency by serving data from nearest copy\n- Fault tolerance — if server fails, replicas serve data\n\n**Types of Replication:**\n\n**1. Full Replication:**\n- Complete copy of the database on each node/device\n- Highest availability and fastest local access\n- High storage cost; synchronization complexity increases with size\n- Suitable for small, read-heavy datasets\n\n**2. Partial Replication:**\n- Only a subset of data replicated to each node\n- More efficient storage\n- User gets only relevant data (e.g., only their records)\n- Requires smarter replication policy\n\n**3. Fragment Replication:**\n- Database divided into fragments (horizontal or vertical)\n- Different fragments replicated to different nodes\n- Balances load and storage\n\n**Replication Modes:**\n\n**Synchronous Replication:**\n- Changes committed to all replicas before confirming to user\n- Guarantees consistency (no stale reads)\n- Higher latency (waits for all replicas)\n- Not ideal for mobile (intermittent connectivity)\n\n**Asynchronous Replication:**\n- Changes committed locally first; replicas updated later\n- Low latency, works offline\n- Temporary inconsistency (eventual consistency)\n- Preferred for mobile environments\n\n**Conflict Resolution:** When same data modified on multiple replicas simultaneously:\n- Timestamp-based (most recent wins)\n- Application-specific merge logic\n- Manual resolution by user\n\n**Technologies:** CouchDB (with Couchbase Lite for mobile), Firebase Realtime Database, Realm Sync."
+    },
+    {
+      "n": 33,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "List and explain any five applications of mobile computing.",
+      "papers": [
+        "Dec 2022"
+      ],
+      "freq": 2,
+      "answer": "Mobile computing has transformed industries by enabling computing and communication anywhere. Here are five key application domains:\n\n**1. Mobile Healthcare (mHealth):**\n- Remote patient monitoring via wearable sensors\n- Telemedicine — video consultations with doctors\n- Electronic health records (EHR) access by doctors\n- Medication reminder apps\n- Fitness tracking (heart rate, steps, sleep)\n- Examples: Apple Health, MyFitnessPal, eSanjeevani\n\n**2. Mobile Commerce (M-Commerce):**\n- Online shopping via mobile apps (Amazon, Flipkart)\n- Mobile payments (Google Pay, PhonePe, Apple Pay)\n- Mobile banking — balance check, NEFT, IMPS\n- Mobile ticketing — flights, trains, movies\n- Examples: Paytm, BHIM, bank apps\n\n**3. Mobile Entertainment:**\n- Video streaming (Netflix, YouTube, Hotstar)\n- Online gaming (PUBG, Free Fire, chess)\n- Music streaming (Spotify, JioSaavn)\n- Podcasts, ebooks, digital magazines\n- Social media (Instagram, Snapchat)\n\n**4. Mobile Navigation & Location Services:**\n- Turn-by-turn navigation (Google Maps, Apple Maps)\n- Ride-hailing services (Uber, Ola)\n- Food delivery with real-time tracking (Swiggy, Zomato)\n- Location-based advertising\n- Asset tracking (fleet management, package delivery)\n\n**5. Mobile Learning (mLearning):**\n- Online courses and video lectures (SWAYAM, Coursera)\n- IGNOU mobile study apps\n- Language learning (Duolingo)\n- Virtual classrooms during COVID-19\n- Digital textbooks and reference materials\n\n**Other important applications:** Mobile CRM, field force automation, emergency services dispatch, precision agriculture (soil sensors), smart cities (traffic management)."
+    },
+    {
+      "n": 34,
+      "hot": false,
+      "cat": "emerging",
+      "unit": "Emerging Technologies",
+      "text": "What are Actuators? Give examples of actuators found in IoT/Robots.",
+      "papers": [
+        "Jun 2024",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**Actuators** are devices that convert an electrical signal (or other energy input) into a physical action or motion. In the context of IoT and robotics, actuators are the \"output\" devices that cause changes in the physical world based on commands from a controller/microprocessor.\n\n**Contrast with Sensors:** Sensors sense the environment (input devices); actuators act on the environment (output devices).\n\n**Types of Actuators:**\n\n**1. Electric Actuators:**\n- **DC Motor:** Converts electrical energy to rotational motion. Used in wheels, conveyors.\n- **Servo Motor:** Controlled rotation to specific angle. Used in robot arms, RC cars.\n- **Stepper Motor:** Precise incremental rotation. Used in 3D printers, CNC machines.\n- **Linear Actuator:** Converts rotation to linear motion. Used in adjustable desks, valves.\n\n**2. Hydraulic Actuators:**\n- Uses pressurized fluid (oil) for powerful movement\n- Used in heavy machinery, excavators, industrial presses\n\n**3. Pneumatic Actuators:**\n- Uses compressed air\n- Used in factory automation, robotic grippers, valves\n\n**4. Solenoid Actuators:**\n- Electromagnetic coil pulls/pushes a metal plunger\n- Used in door locks, fuel injectors, pinball machines\n\n**5. Piezoelectric Actuators:**\n- Converts electrical signal to mechanical deformation\n- Used in precision instruments, inkjet printer heads, vibration control\n\n**Examples in Robots:**\n- **Arm joints:** Servo motors for controlled movement\n- **Gripper:** Electric/pneumatic actuator to grasp objects\n- **Wheels/locomotion:** DC motors\n- **Speaker:** Electromagnetic actuator (voice coil)\n- **Vibration motor:** In smartphones (haptic feedback)\n- **LED/Display:** Considered output actuators in simple systems"
+    },
+    {
+      "n": 35,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "Compare and contrast TCP and UDP protocols in the context of mobile computing.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**TCP (Transmission Control Protocol)** and **UDP (User Datagram Protocol)** are transport layer protocols. Their behavior has important implications for mobile computing.\n\n**TCP (Connection-oriented, Reliable):**\n- Establishes connection via 3-way handshake (SYN, SYN-ACK, ACK)\n- Guarantees delivery, ordering, and error correction\n- Flow control (prevents sender from overwhelming receiver)\n- Congestion control (adjusts to network conditions)\n- Acknowledgment for every segment\n- Example: HTTP/HTTPS, email, file transfer\n\n**UDP (Connectionless, Unreliable):**\n- No connection setup; just send data\n- No delivery guarantees, no ordering\n- No flow control or congestion control\n- Minimal overhead — very fast\n- Application handles reliability if needed\n- Example: DNS, VoIP, video streaming, online gaming\n\n**Comparison Table:**\n\n| Feature | TCP | UDP |\n|---|---|---|\n| Connection | Connection-oriented | Connectionless |\n| Reliability | Guaranteed delivery | No guarantee |\n| Ordering | In-order delivery | No order guarantee |\n| Speed | Slower (overhead) | Faster (less overhead) |\n| Header size | 20 bytes | 8 bytes |\n| Error checking | Checksum + retransmit | Checksum only |\n| Congestion control | Yes | No |\n| Use case | Web, email, file transfer | VoIP, streaming, DNS |\n\n**Mobile Computing Context:**\n- **TCP problems on mobile:** Wireless packet loss is misinterpreted as congestion → TCP reduces transmission rate unnecessarily → poor performance\n- **Mobile TCP (M-TCP):** Modified version that differentiates wireless loss from congestion loss\n- **UDP preferred for:** VoIP apps (WhatsApp calls), real-time video (Zoom), gaming — where speed matters more than reliability\n- **TCP preferred for:** Downloading apps, browsing, email — where correctness is critical"
+    },
+    {
+      "n": 36,
+      "hot": false,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain signal weakening (attenuation, noise, interference) after wireless transmission.",
+      "papers": [
+        "Jun 2023"
+      ],
+      "freq": 2,
+      "answer": "When a signal is transmitted wirelessly, its strength and quality degrade over distance and through obstacles. The main reasons are:\n\n**1. Attenuation (Path Loss):**\n- Gradual weakening of signal strength as it travels through a medium\n- In free space: signal power decreases with square of distance (Inverse Square Law)\n- In air: atmosphere absorbs some energy (especially at high frequencies)\n- Physical obstacles: walls, buildings, hills absorb/reflect radio waves\n- Solution: Amplifiers, repeaters, higher transmission power\n\n**2. Absorption:**\n- Materials absorb electromagnetic energy\n- Water, concrete, glass all absorb to different degrees\n- Human body absorbs 2.4 GHz signals (problem for Wi-Fi)\n- Foliage significantly absorbs high-frequency signals\n\n**3. Reflection:**\n- Signal bounces off hard surfaces (buildings, walls, ground)\n- Reflected signal adds to or subtracts from direct signal\n- Multipath propagation: multiple copies of signal arrive at different times\n\n**4. Diffraction:**\n- Signal bends around edges of obstacles\n- Allows communication around corners (though with weaker signal)\n- Important for coverage behind buildings\n\n**5. Scattering:**\n- Signal dispersed in many directions when hitting rough surfaces or small objects\n- Reduces signal strength in original direction\n- Caused by rough terrain, foliage, street signs\n\n**6. Interference:**\n- **Co-channel interference:** Same frequency used by nearby cells\n- **Adjacent channel interference:** Signals from neighboring frequency bands bleed over\n- **Intermodulation distortion:** Non-linear combinations of multiple signals\n- **Atmospheric noise:** Lightning, cosmic background radiation\n- **Man-made interference:** Industrial equipment, microwave ovens at 2.4 GHz\n\n**Mitigation Techniques:** Frequency planning, directional antennas, spread spectrum (CDMA/FHSS), MIMO (exploits multipath), power control."
+    },
+    {
+      "n": 37,
+      "hot": false,
+      "cat": "apps",
+      "unit": "Apps & Development",
+      "text": "Explain the features of an integrated development platform for mobile applications.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "An **Integrated Development Platform (IDP)** for mobile apps is a comprehensive software environment that provides all tools needed to build, test, debug, and deploy mobile applications.\n\n**Key Features of a Mobile IDP:**\n\n**1. Code Editor:**\n- Syntax highlighting and auto-completion (IntelliSense)\n- Refactoring support\n- Multiple language support (Java, Kotlin, Swift, JavaScript)\n- Version control integration (Git)\n\n**2. Compiler and Build System:**\n- Compiles source code to executable bytecode/machine code\n- Build automation (Gradle for Android, Xcode Build for iOS)\n- Multi-variant builds (debug, release, flavors)\n\n**3. Debugger:**\n- Step-through debugging (breakpoints, step over, step in)\n- Variable inspection at runtime\n- Memory and CPU profiling\n- Crash reporting and stack trace analysis\n- Network traffic inspection\n\n**4. Emulator / Simulator:**\n- Test apps without physical devices\n- Simulate different screen sizes and API levels\n- Simulate GPS, sensors, network conditions\n- Android Emulator, iOS Simulator\n\n**5. UI Design Tools:**\n- Drag-and-drop layout editors\n- Preview on multiple screen sizes\n- Constraint layout tools\n- Android: Layout Editor; iOS: Interface Builder / SwiftUI Preview\n\n**6. Testing Framework:**\n- Unit testing (JUnit, XCTest)\n- UI testing automation (Espresso, XCUITest)\n- Integration test runners\n- Code coverage reports\n\n**7. Deployment Tools:**\n- Code signing for app store submission\n- APK/IPA generation\n- Google Play and App Store submission tools\n\n**Examples:** Android Studio (for Android), Xcode (for iOS), Visual Studio Code with React Native, Flutter SDK, Xamarin (cross-platform)."
+    },
+    {
+      "n": 38,
+      "hot": false,
+      "cat": "os",
+      "unit": "Mobile OS & Platforms",
+      "text": "What are the features of iOS? Explain the iOS ecosystem.",
+      "papers": [
+        "Dec 2022",
+        "Dec 2025"
+      ],
+      "freq": 3,
+      "answer": "**iOS** is Apple's mobile operating system for iPhone, iPad (iPadOS), and iPod Touch. First released in 2007 with the original iPhone.\n\n**Features of iOS:**\n\n**1. Security:**\n- Secure Enclave: Dedicated security chip for Face ID, Touch ID, and encryption\n- App Sandbox: Each app isolated from others\n- App Store review process: Strict app vetting\n- AES 256-bit hardware encryption\n- Regular security updates\n\n**2. User Interface:**\n- Multi-touch gestures (swipe, pinch, tap, rotate)\n- Haptic feedback (Taptic Engine)\n- Dynamic Island (iPhone 14+)\n- Control Center, Notification Center\n- Dark mode support\n- Accessibility features (VoiceOver, AssistiveTouch)\n\n**3. Performance:**\n- Apple Silicon chips (A-series, M-series) — optimized hardware-software integration\n- Metal graphics API for high-performance gaming\n- Background App Refresh — controlled background processing\n- ARC (Automatic Reference Counting) — efficient memory management\n\n**4. Connectivity:**\n- Support for 5G, Wi-Fi 6E, Bluetooth 5.3, NFC, Ultra Wideband\n- AirDrop — nearby device sharing\n- Handoff and Continuity — seamless iPhone-Mac-iPad integration\n- Personal Hotspot\n\n**5. Multimedia:**\n- Photos/Videos with ProRAW, ProRes\n- FaceTime (Group video calling)\n- Apple Music, Podcasts, Books\n- AirPlay for streaming to TV/speakers\n\n**iOS Ecosystem:**\n- **App Store:** 2M+ apps, curated and reviewed\n- **iCloud:** Seamless data sync across Apple devices\n- **Apple Pay:** Mobile payments integration\n- **Siri:** Voice assistant integrated system-wide\n- **HomeKit, CarPlay, HealthKit:** Platform extensions\n- **Swift/Objective-C:** Development languages\n- **Xcode:** Official IDE"
+    },
+    {
+      "n": 39,
+      "hot": false,
+      "cat": "arch",
+      "unit": "Architecture",
+      "text": "What is mobility in mobile computing? Explain different features of mobile computing.",
+      "papers": [
+        "Dec 2024"
+      ],
+      "freq": 2,
+      "answer": "**Mobility in Mobile Computing** refers to the ability of users to access computing and communication resources while physically moving from one location to another, without disruption to service.\n\n**Types of Mobility:**\n- **User mobility:** User can use any terminal (same phone number, files accessible from any device)\n- **Device mobility:** Device can move between networks (IP address may change; session continues via Mobile IP)\n- **Service mobility:** Services follow the user regardless of network or device\n- **Session mobility:** Active sessions (calls, downloads) continue while moving\n\n**Features of Mobile Computing:**\n\n**1. Portability:**\n- Computing anywhere — not bound to a desk\n- Lightweight devices with battery power\n- Compact form factor\n\n**2. Connectivity:**\n- Always-connected via cellular (2G–5G), Wi-Fi, Bluetooth, NFC\n- Seamless network switching\n- Roaming between networks/countries\n\n**3. Social Interactivity:**\n- Real-time communication (calls, messaging, social media)\n- Collaborative apps (Google Docs, shared calendars)\n\n**4. Individuality:**\n- Personalization of device and services\n- Location-based personalized content\n- User profiles and preferences\n\n**5. Context Awareness:**\n- Device knows location (GPS), orientation (accelerometer), environment (camera, microphone)\n- Apps adapt to context (silent mode in meetings, navigation when driving)\n\n**6. Scalability:**\n- From simple SMS to complex cloud applications\n- Millions of devices handled by cellular infrastructure\n\n**Design Challenges:** Limited battery, limited bandwidth, intermittent connectivity, small screen, security on untrusted networks, device heterogeneity."
+    },
+    {
+      "n": 40,
+      "hot": false,
+      "cat": "wireless",
+      "unit": "Wireless & Transmission",
+      "text": "Explain WAP (Wireless Application Protocol) and its protocol stack.",
+      "papers": [
+        "Jun 2025"
+      ],
+      "freq": 2,
+      "answer": "**WAP (Wireless Application Protocol)** is an open international standard for applications using wireless communication, e.g., internet access on mobile phones. Developed by the WAP Forum in 1998, it allowed mobile devices to access internet-like content over 2G networks.\n\n**WAP Architecture:**\n- **WAP Client:** Mobile device running a WAP browser (microbrowser)\n- **WAP Gateway:** Translates between WAP and HTTP/WWW protocols\n- **Web Server:** Serves WAP content (WML pages)\n- **Internet:** Standard TCP/IP network\n\n**WAP Content:**\n- **WML (Wireless Markup Language):** XML-based, optimized for small screens (like stripped-down HTML)\n- **WMLScript:** Client-side scripting (like JavaScript for WAP)\n- **WBMP (Wireless Bitmap):** Monochrome image format for low bandwidth\n\n**WAP Protocol Stack (from top to bottom):**\n\n**1. WAE (Wireless Application Environment):**\n- Topmost layer; contains WML, WMLScript, WTA (telephony apps)\n- Application development environment\n\n**2. WSP (Wireless Session Protocol):**\n- Provides HTTP-like request/response sessions\n- Two modes: connected (reliable) and connectionless\n- Equivalent to HTTP in internet stack\n\n**3. WTP (Wireless Transaction Protocol):**\n- Provides transaction services\n- Three classes: unreliable one-way, reliable one-way, reliable two-way\n- Equivalent to TCP/UDP combined\n\n**4. WTLS (Wireless Transport Layer Security):**\n- Security layer: authentication, encryption, integrity\n- Optimized version of TLS/SSL for low-bandwidth\n- Equivalent to TLS/SSL in internet stack\n\n**5. WDP (Wireless Datagram Protocol):**\n- Bottom transport layer\n- Adapts to underlying bearer services (SMS, GPRS, CDMA, etc.)\n- Equivalent to UDP in internet stack\n\n**WAP Today:** Largely replaced by mobile web browsers (WebKit-based), 3G/4G/5G direct internet access, and HTML5."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the typical data rate range offered by GPRS?",
+      "options": [
+        "9.6–14.4 kbps",
+        "56–114 kbps",
+        "384 kbps–2 Mbps",
+        "10–100 Mbps"
+      ],
+      "answer": "56–114 kbps",
+      "explanation": "General Packet Radio Service (GPRS) offers packet-switched data rates ranging between 56 and 114 kbps."
+    },
+    {
+      "question": "Which of the following is NOT a feature of GPRS?",
+      "options": [
+        "Always-on connectivity",
+        "Circuit switching billing model",
+        "IP-based architecture",
+        "Support for simultaneous voice and data"
+      ],
+      "answer": "Circuit switching billing model",
+      "explanation": "GPRS uses packet switching, and billing is typically based on data volume consumed rather than connection time."
+    },
+    {
+      "question": "Which GSM database stores temporary data about subscribers who are currently roaming in a specific MSC's service area?",
+      "options": [
+        "HLR",
+        "VLR",
+        "EIR",
+        "AuC"
+      ],
+      "answer": "VLR",
+      "explanation": "The Visitor Location Register (VLR) is a database that contains temporary info about roaming subscribers currently within the coverage of that specific MSC."
+    },
+    {
+      "question": "Which BSS component handles the radio interface and contains the radio transceivers (TRX) for a cell?",
+      "options": [
+        "BSC",
+        "BTS",
+        "MSC",
+        "SGSN"
+      ],
+      "answer": "BTS",
+      "explanation": "The Base Transceiver Station (BTS) houses the radio transceivers, antennas, and handles the physical layer radio link with the Mobile Station (MS)."
+    },
+    {
+      "question": "In a 3-tier mobile computing architecture, which tier is responsible for rendering the UI and running local client operations?",
+      "options": [
+        "Tier 1: Presentation Layer",
+        "Tier 2: Application Layer",
+        "Tier 3: Data Layer",
+        "Tier 4: Security Layer"
+      ],
+      "answer": "Tier 1: Presentation Layer",
+      "explanation": "Tier 1 represents the Mobile Client (Presentation Layer), which handles the interface and local processing on the device."
+    },
+    {
+      "question": "What is the purpose of the Base Station Controller (BSC) in a GSM network?",
+      "options": [
+        "Billing and routing coordination",
+        "Authenticating the SIM card",
+        "Managing radio channel allocation and handovers for multiple BTSs",
+        "Storing permanent subscriber profiles"
+      ],
+      "answer": "Managing radio channel allocation and handovers for multiple BTSs",
+      "explanation": "The BSC acts as a controller for multiple BTSs, managing radio channels, transmitter power levels, and handovers between BTSs under its control."
+    },
+    {
+      "question": "Which access methodology is utilized by GSM technology to allocate timeslots to multiple users on the same frequency?",
+      "options": [
+        "CDMA",
+        "FDMA",
+        "TDMA",
+        "SDMA"
+      ],
+      "answer": "TDMA",
+      "explanation": "GSM uses Time Division Multiple Access (TDMA) to divide a radio frequency channel into 8 distinct timeslots, allowing up to 8 users to share it."
+    },
+    {
+      "question": "What cell type in GSM is typically used for indoor coverage inside office buildings or shopping malls?",
+      "options": [
+        "Macro cells",
+        "Micro cells",
+        "Pico cells",
+        "Umbrella cells"
+      ],
+      "answer": "Pico cells",
+      "explanation": "Pico cells are small, low-power cells designed to cover indoor areas like offices or shopping malls where signals from larger cells are weak."
+    },
+    {
+      "question": "Which layer of the Android architecture contains the Android Runtime (ART) and core native C/C++ libraries?",
+      "options": [
+        "Linux Kernel",
+        "Hardware Abstraction Layer (HAL)",
+        "ART & Native Libraries",
+        "Java API Framework"
+      ],
+      "answer": "ART & Native Libraries",
+      "explanation": "The Android Runtime (ART) and native C/C++ libraries (like SQLite, OpenGL ES, WebKit) sit directly on top of the Hardware Abstraction Layer (HAL)."
+    },
+    {
+      "question": "Which execution engine does Android modern runtime (ART) use to compile applications upon installation for faster startup?",
+      "options": [
+        "Just-In-Time (JIT) Compilation",
+        "Ahead-of-Time (AOT) Compilation",
+        "Interpreted Execution",
+        "Dalvik Virtual Machine"
+      ],
+      "answer": "Ahead-of-Time (AOT) Compilation",
+      "explanation": "ART uses Ahead-of-Time (AOT) compilation to pre-compile application bytecode into machine code during installation, improving execution speed and reducing battery drain."
+    },
+    {
+      "question": "In the J2EE multi-tier architecture, where do JSP and Servlets run?",
+      "options": [
+        "Client Tier",
+        "Web Tier",
+        "Business Tier",
+        "EIS Tier"
+      ],
+      "answer": "Web Tier",
+      "explanation": "JSP and Servlets are run inside the Web Container, which represents the Web Tier of J2EE architecture."
+    },
+    {
+      "question": "Which J2ME configuration is designed for highly constrained devices with limited memory (like legacy feature phones)?",
+      "options": [
+        "CDC",
+        "CLDC",
+        "MIDP",
+        "OSGi"
+      ],
+      "answer": "CLDC",
+      "explanation": "Connected Limited Device Configuration (CLDC) is optimized for resource-constrained devices, defining the JVM and core APIs."
+    },
+    {
+      "question": "What is the lifecycle state of a J2ME MIDlet application when it is temporarily suspended to save resources?",
+      "options": [
+        "Active",
+        "Paused",
+        "Destroyed",
+        "Pending"
+      ],
+      "answer": "Paused",
+      "explanation": "MIDlet applications transition to the Paused state when they are interrupted or backgrounded, waiting to return to Active."
+    },
+    {
+      "question": "Which type of wireless network operates without any pre-existing infrastructure or central base stations?",
+      "options": [
+        "Cellular Network",
+        "Mobile Ad-hoc Network (MANET)",
+        "WLAN Infrastructure Mode",
+        "WiMAX Network"
+      ],
+      "answer": "Mobile Ad-hoc Network (MANET)",
+      "explanation": "MANETs are self-configuring, infrastructure-less networks of mobile devices where each node acts as both a host and a router."
+    },
+    {
+      "question": "What is a major limitation of Mobile Ad-hoc Networks (MANETs)?",
+      "options": [
+        "High deployment cost",
+        "Single point of failure at the base station",
+        "Battery and energy constraints on autonomous nodes",
+        "Fixed topology constraints"
+      ],
+      "answer": "Battery and energy constraints on autonomous nodes",
+      "explanation": "Nodes in a MANET are battery-powered, and because they must forward packets for other nodes (acting as routers), power depletion is a critical issue."
+    },
+    {
+      "question": "Which transmission method is used by LTE (4G) for downlink communications to achieve high spectral efficiency?",
+      "options": [
+        "SC-FDMA",
+        "CDMA",
+        "OFDMA",
+        "TDMA"
+      ],
+      "answer": "OFDMA",
+      "explanation": "LTE uses Orthogonal Frequency Division Multiple Access (OFDMA) for downlink to provide high data rates and combat multipath fading."
+    },
+    {
+      "question": "Why does LTE use SC-FDMA instead of OFDMA for uplink communications?",
+      "options": [
+        "It increases bandwidth efficiency.",
+        "It has a lower Peak-to-Average Power Ratio (PAPR), saving client device battery.",
+        "It allows longer communication distance.",
+        "It supports higher encryption key sizes."
+      ],
+      "answer": "It has a lower Peak-to-Average Power Ratio (PAPR), saving client device battery.",
+      "explanation": "Single-Carrier FDMA (SC-FDMA) has a lower PAPR compared to OFDMA, which reduces power amplifier requirements and saves mobile device battery life."
+    },
+    {
+      "question": "In the iOS architecture, which layer provides low-level system features like security frameworks, Bluetooth, and threads?",
+      "options": [
+        "Cocoa Touch",
+        "Media Layer",
+        "Core Services",
+        "Core OS"
+      ],
+      "answer": "Core OS",
+      "explanation": "The Core OS layer sits at the bottom of the iOS software stack and interacts directly with the hardware, providing low-level UNIX-based interfaces."
+    },
+    {
+      "question": "Which iOS framework is part of the Cocoa Touch layer and handles UI controls, views, and touch event handling?",
+      "options": [
+        "Core Graphics",
+        "Core Data",
+        "UIKit",
+        "AVFoundation"
+      ],
+      "answer": "UIKit",
+      "explanation": "UIKit is a foundational Cocoa Touch framework that provides basic visual building blocks and touch interaction APIs for iOS apps."
+    },
+    {
+      "question": "What technique divides the total transmission bandwidth into smaller, distinct frequency slots separated by guard bands?",
+      "options": [
+        "TDM",
+        "FDM",
+        "WDM",
+        "CDMA"
+      ],
+      "answer": "FDM",
+      "explanation": "Frequency Division Multiplexing (FDM) divides the shared medium bandwidth into multiple distinct frequency channels, operating simultaneously."
+    },
+    {
+      "question": "What multiplexing technology is the optical equivalent of FDM, transmitting multiple wavelengths of light over a single fiber?",
+      "options": [
+        "TDM",
+        "SDM",
+        "WDM",
+        "CDM"
+      ],
+      "answer": "WDM",
+      "explanation": "Wavelength Division Multiplexing (WDM) multiplexes multiple optical carrier signals onto a single optical fiber using different wavelengths (colors) of laser light."
+    },
+    {
+      "question": "What type of TDM allocates time slots dynamically to active nodes only when they have data ready to transmit, avoiding bandwidth wastage?",
+      "options": [
+        "Synchronous TDM",
+        "Asynchronous / Statistical TDM",
+        "Frequency-based TDM",
+        "Fixed-frame TDM"
+      ],
+      "answer": "Asynchronous / Statistical TDM",
+      "explanation": "Statistical TDM dynamically allocates slots to active users only when needed, maximizing the transmission line's capacity compared to synchronous TDM."
+    },
+    {
+      "question": "Which frequency bands are typically used for AM and FM radio broadcasting?",
+      "options": [
+        "FDM bands",
+        "TDM slots",
+        "WDM bands",
+        "CDMA channels"
+      ],
+      "answer": "FDM bands",
+      "explanation": "AM/FM radio relies on Frequency Division Multiplexing (FDM) bands, where each station is assigned a specific carrier frequency."
+    },
+    {
+      "question": "In CDMA, what codes are assigned to users to keep their signals orthogonal when transmitting on the same frequency?",
+      "options": [
+        "IP addresses",
+        "Time slots",
+        "Spreading / PN codes",
+        "Wavelengths"
+      ],
+      "answer": "Spreading / PN codes",
+      "explanation": "CDMA assigns a unique Pseudo-Random Noise (PN) spreading code to each sender, allowing receivers to extract the desired signal from the combined transmissions."
+    },
+    {
+      "question": "Which IEEE standard governs Metropolitan Area Networks (MANs) and is marketed as WiMAX?",
+      "options": [
+        "802.11",
+        "802.15",
+        "802.16",
+        "802.3"
+      ],
+      "answer": "802.16",
+      "explanation": "IEEE 802.16 governs broadband wireless metropolitan area networks, commercially known as WiMAX."
+    },
+    {
+      "question": "Which WiMAX service class is designed for Constant Bit Rate traffic, such as Voice over IP (VoIP)?",
+      "options": [
+        "UGS (Unsolicited Grant Service)",
+        "rtPS (Real-time Polling Service)",
+        "nrtPS (Non-real-time Polling)",
+        "BE (Best Effort)"
+      ],
+      "answer": "UGS (Unsolicited Grant Service)",
+      "explanation": "UGS provides dedicated constant-size data grants at periodic intervals, ideal for real-time VoIP streams."
+    },
+    {
+      "question": "What protocol is used by Wi-Fi (802.11) at the MAC layer to coordinate shared medium access and prevent collisions?",
+      "options": [
+        "CSMA/CD",
+        "CSMA/CA",
+        "ALOHA",
+        "TDMA"
+      ],
+      "answer": "CSMA/CA",
+      "explanation": "Wi-Fi uses Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA) because wireless transceivers cannot listen for collisions while transmitting."
+    },
+    {
+      "question": "Which Wi-Fi security standard is the most modern, introducing stronger cryptographic protocols like SAE (Simultaneous Authentication of Equals)?",
+      "options": [
+        "WEP",
+        "WPA",
+        "WPA2",
+        "WPA3"
+      ],
+      "answer": "WPA3",
+      "explanation": "WPA3 is the latest security standard for Wi-Fi networks, replacing WPA2 with much stronger authentication and encryption algorithms."
+    },
+    {
+      "question": "In which phase of the mobile application development process are low-fidelity layouts and interactive mockups (prototypes) built and tested?",
+      "options": [
+        "Planning",
+        "UI/UX Design",
+        "Development",
+        "UAT Testing"
+      ],
+      "answer": "UI/UX Design",
+      "explanation": "The UI/UX design phase involves wireframing and prototyping layout mockups to refine user interaction before writing code."
+    },
+    {
+      "question": "What phase of mobile app development deals with App Store / Google Play submission and verification checklist compliance?",
+      "options": [
+        "Testing",
+        "Development",
+        "Deployment",
+        "Maintenance"
+      ],
+      "answer": "Deployment",
+      "explanation": "Deployment involves compiling production bundles, registering signing certificates, and submitting applications to the respective app stores."
+    },
+    {
+      "question": "What is the primary objective of data synchronization protocols like SyncML in mobile computing?",
+      "options": [
+        "Compressing images for transmission",
+        "Maintaining data consistency between a mobile device and a server across disconnected periods",
+        "Encrypting database connections",
+        "Routing IP packets over cellular towers"
+      ],
+      "answer": "Maintaining data consistency between a mobile device and a server across disconnected periods",
+      "explanation": "Data synchronization ensures that offline modifications on a mobile database are reconciled with the server database upon reconnection."
+    },
+    {
+      "question": "Which data synchronization method transfers only the changed data items (deltas) since the last sync time to conserve bandwidth?",
+      "options": [
+        "Full Synchronization",
+        "Incremental Synchronization",
+        "One-way Synchronization",
+        "Bulk replication"
+      ],
+      "answer": "Incremental Synchronization",
+      "explanation": "Incremental sync tracks changes using timestamps or version logs, forwarding only modified data blocks to optimize bandwidth."
+    },
+    {
+      "question": "In conflict resolution during two-way synchronization, what does the 'Last-Write-Wins' strategy mean?",
+      "options": [
+        "The server's version always overrides the client.",
+        "The most recent update (based on timestamp) overrides any older conflicting modifications.",
+        "The client's modifications always overwrite the server.",
+        "Both changes are merged into a single line."
+      ],
+      "answer": "The most recent update (based on timestamp) overrides any older conflicting modifications.",
+      "explanation": "Last-Write-Wins (LWW) is a conflict resolution protocol that uses timestamp ordering to let the latest modification overwrite previous versions."
+    },
+    {
+      "question": "Which local storage option on mobile OS platforms is best suited for storing structured, relational application data?",
+      "options": [
+        "SharedPreferences / NSUserDefaults",
+        "SQLite / Room / Core Data",
+        "Plain text files",
+        "JSON file on SD card"
+      ],
+      "answer": "SQLite / Room / Core Data",
+      "explanation": "SQLite is a lightweight SQL database integrated into Android and iOS, providing robust support for structured relational queries."
+    },
+    {
+      "question": "Which database access pattern abstracts database operations behind interfaces, isolating business logic from direct database SQL queries?",
+      "options": [
+        "MVVM Pattern",
+        "Repository Pattern",
+        "Singleton Pattern",
+        "Observer Pattern"
+      ],
+      "answer": "Repository Pattern",
+      "explanation": "The Repository Pattern mediates between data source layers and business logic, abstracting database/network lookups into clean domain interfaces."
+    },
+    {
+      "question": "Which of the following is NOT considered a subset of Mobile Commerce (M-Commerce)?",
+      "options": [
+        "Mobile banking transfers",
+        "In-app retail purchases",
+        "Desktop-based web design services",
+        "NFC contactless POS payments"
+      ],
+      "answer": "Desktop-based web design services",
+      "explanation": "M-Commerce relates specifically to transactions initiated and completed on mobile or wireless handheld devices."
+    },
+    {
+      "question": "What technology enables contactless mobile payments like Apple Pay and Google Pay at checkout terminals?",
+      "options": [
+        "NFC (Near Field Communication)",
+        "WAP",
+        "GPS",
+        "Bluetooth Classic"
+      ],
+      "answer": "NFC (Near Field Communication)",
+      "explanation": "NFC is a short-range wireless technology that allows mobile wallets to transmit payment tokens securely to reader terminals within a few centimeters."
+    },
+    {
+      "question": "What is the key difference between Guided and Unguided transmission media?",
+      "options": [
+        "Guided media uses radio waves; Unguided uses cables.",
+        "Guided media confines and routes signals along a physical cable path; Unguided propagates signals through air/vacuum.",
+        "Guided media is only used for analog; Unguided is only for digital.",
+        "Guided media requires line-of-sight; Unguided does not."
+      ],
+      "answer": "Guided media confines and routes signals along a physical cable path; Unguided propagates signals through air/vacuum.",
+      "explanation": "Guided transmission media includes cables (fiber, copper), while unguided transmission media refers to wireless transmission over electromagnetic waves."
+    },
+    {
+      "question": "Which guided transmission medium is immune to Electromagnetic Interference (EMI)?",
+      "options": [
+        "Unshielded Twisted Pair (UTP)",
+        "Coaxial cable",
+        "Fiber Optic Cable",
+        "Shielded Twisted Pair (STP)"
+      ],
+      "answer": "Fiber Optic Cable",
+      "explanation": "Fiber Optic Cables transmit data using light pulses instead of electrical currents, making them completely immune to electromagnetic interference."
+    },
+    {
+      "question": "An antenna converts electrical currents into what type of physical waves?",
+      "options": [
+        "Acoustic waves",
+        "Electromagnetic waves",
+        "Light waves",
+        "Magnetic lines only"
+      ],
+      "answer": "Electromagnetic waves",
+      "explanation": "Antennas act as transducers, converting alternating electrical currents into propagating electromagnetic radio waves, and vice versa."
+    },
+    {
+      "question": "How does frequency relate to the required physical size of an antenna?",
+      "options": [
+        "Higher frequencies require larger antennas.",
+        "Antenna size is independent of frequency.",
+        "Higher frequencies (shorter wavelengths) require smaller antennas.",
+        "Only the transmitter power determines the antenna size."
+      ],
+      "answer": "Higher frequencies (shorter wavelengths) require smaller antennas.",
+      "explanation": "Antenna dimensions are typically proportional to the signal's wavelength (e.g. λ/2). Since wavelength is inversely proportional to frequency, higher frequencies have shorter wavelengths and require smaller antennas."
+    },
+    {
+      "question": "Which antenna type is highly directional, focusing energy into a narrow beam, and is commonly used for satellite communications?",
+      "options": [
+        "Monopole antenna",
+        "Dipole antenna",
+        "Parabolic dish antenna",
+        "Yagi-Uda antenna"
+      ],
+      "answer": "Parabolic dish antenna",
+      "explanation": "Parabolic dish antennas use reflectors to concentrate radio waves into a highly directional beam, ideal for long-distance satellite links."
+    },
+    {
+      "question": "What peak download speed is theoretically possible in 4G LTE-Advanced networks for stationary users?",
+      "options": [
+        "100 Mbps",
+        "50 Mbps",
+        "1 Gbps",
+        "10 Gbps"
+      ],
+      "answer": "1 Gbps",
+      "explanation": "The ITU's IMT-Advanced specification requires 4G networks to achieve peak download rates of up to 1 Gbps for low-mobility (stationary) users."
+    },
+    {
+      "question": "What is the primary difference between a 3G network and an LTE (4G) network?",
+      "options": [
+        "3G uses digital signals; 4G uses analog.",
+        "4G operates as an all-IP network for both voice and data; 3G uses circuit-switching for voice.",
+        "3G uses SIM cards; 4G does not.",
+        "4G does not require cell towers."
+      ],
+      "answer": "4G operates as an all-IP network for both voice and data; 3G uses circuit-switching for voice.",
+      "explanation": "LTE (4G) introduces a flat, packet-switched, all-IP core network. Traditional circuit switching is replaced by packet-based VoLTE."
+    },
+    {
+      "question": "Which handover type is known as 'make-before-break', where a connection is established with a new base station before the old one is terminated?",
+      "options": [
+        "Hard Handover",
+        "Soft Handover",
+        "Vertical Handover",
+        "Forced Handover"
+      ],
+      "answer": "Soft Handover",
+      "explanation": "Soft Handover maintains connections with multiple base stations simultaneously during cell transition (make-before-break)."
+    },
+    {
+      "question": "In what networks is Soft Handover commonly supported due to all cells sharing the same frequency channel?",
+      "options": [
+        "GSM (TDMA)",
+        "CDMA",
+        "AMPS (FDMA)",
+        "WLAN (802.11)"
+      ],
+      "answer": "CDMA",
+      "explanation": "CDMA systems share the same frequency spectrum across all cells, enabling the receiver to seamlessly listen to multiple base stations concurrently."
+    },
+    {
+      "question": "Which handover type breaks the connection with the current base station before establishing a link with the new one (break-before-make)?",
+      "options": [
+        "Soft Handover",
+        "Hard Handover",
+        "Seamless Handover",
+        "Softer Handover"
+      ],
+      "answer": "Hard Handover",
+      "explanation": "Hard Handover breaks the old communication channel before establishing the new one, resulting in a brief transmission pause."
+    },
+    {
+      "question": "What is the target latency specified for 5G mobile networks?",
+      "options": [
+        "100 ms",
+        "50 ms",
+        "10 ms",
+        "1 ms"
+      ],
+      "answer": "1 ms",
+      "explanation": "5G URLLC (Ultra-Reliable Low-Latency Communications) targets a packet latency of 1 millisecond or less."
+    },
+    {
+      "question": "Which 5G technology concentrates radio transmission energy directly toward a specific user rather than broadcasting it widely?",
+      "options": [
+        "Millimeter wave",
+        "Beamforming",
+        "Network Slicing",
+        "Massive MIMO"
+      ],
+      "answer": "Beamforming",
+      "explanation": "Beamforming uses antenna arrays to focus radio signals in a directional beam pointed at a specific mobile terminal, improving signal strength and range."
+    },
+    {
+      "question": "What 5G architecture feature allows operators to run multiple isolated, virtual networks on a single physical infrastructure?",
+      "options": [
+        "Beamforming",
+        "Network Slicing",
+        "Massive MIMO",
+        "Sub-6 GHz"
+      ],
+      "answer": "Network Slicing",
+      "explanation": "Network Slicing segmentizes the physical 5G network into dedicated virtual channels tailored for specific applications (e.g. IoT vs high-speed video)."
+    },
+    {
+      "question": "Which MCC component is a small-scale cloud datacenter located at the network edge close to the mobile user to reduce latency?",
+      "options": [
+        "Cloudlet / Edge Node",
+        "Mainframe Server",
+        "Storage Area Network (SAN)",
+        "Virtual Machine Gateway"
+      ],
+      "answer": "Cloudlet / Edge Node",
+      "explanation": "Cloudlets are decentralized edge datacenters designed to offload processing for nearby mobile nodes without long-distance cloud latency."
+    },
+    {
+      "question": "How does Mobile Cloud Computing (MCC) help extend a mobile device's battery life?",
+      "options": [
+        "By increasing battery hardware capacity.",
+        "By offloading intensive processing tasks to powerful cloud servers, reducing CPU load on the device.",
+        "By turning off the wireless radio.",
+        "By storing data locally in the flash memory."
+      ],
+      "answer": "By offloading intensive processing tasks to powerful cloud servers, reducing CPU load on the device.",
+      "explanation": "Offloading heavy tasks (like image processing or complex calculations) to the cloud keeps the local CPU idle, conserving device battery."
+    },
+    {
+      "question": "Unlike HTML, what is a key characteristic of tags in XML?",
+      "options": [
+        "They must always be lowercase.",
+        "They are custom-defined by the developer and describe the data's structure.",
+        "They are ignored by web parsers.",
+        "They must follow CSS stylesheets."
+      ],
+      "answer": "They are custom-defined by the developer and describe the data's structure.",
+      "explanation": "XML is designed to store and transport data. Tags are custom-defined rather than predefined like HTML tags."
+    },
+    {
+      "question": "Which XML parser loads the entire XML document into memory as a tree structure, allowing bidirectional navigation?",
+      "options": [
+        "SAX Parser",
+        "DOM Parser",
+        "XMLPullParser",
+        "JSON Parser"
+      ],
+      "answer": "DOM Parser",
+      "explanation": "The Document Object Model (DOM) parser loads the entire document into RAM to build a tree structure. While easy to navigate, it has high memory overhead."
+    },
+    {
+      "question": "Why is the SAX parser considered memory-efficient for mobile devices compared to the DOM parser?",
+      "options": [
+        "It caches the entire document in memory.",
+        "It reads the XML file sequentially and triggers events instead of building a memory tree.",
+        "It compresses the XML markup.",
+        "It translates XML into JSON."
+      ],
+      "answer": "It reads the XML file sequentially and triggers events instead of building a memory tree.",
+      "explanation": "SAX (Simple API for XML) is event-driven. It parses the document on-the-fly, invoking callback handlers without consuming large memory buffers."
+    },
+    {
+      "question": "Which mobile UI framework developed by Apple uses declarative syntax to build interfaces in Swift?",
+      "options": [
+        "UIKit",
+        "SwiftUI",
+        "CocoaTouch",
+        "Interface Builder"
+      ],
+      "answer": "SwiftUI",
+      "explanation": "SwiftUI is Apple's modern declarative UI framework, enabling developers to state UI layouts cleanly in Swift code."
+    },
+    {
+      "question": "Which mechanism is used in Swift for automatic memory management by keeping track of object reference counts?",
+      "options": [
+        "Garbage Collector (GC)",
+        "ARC (Automatic Reference Counting)",
+        "Manual malloc/free",
+        "Deallocator daemon"
+      ],
+      "answer": "ARC (Automatic Reference Counting)",
+      "explanation": "Swift uses ARC to track and manage application memory usage, releasing instances when their reference count drops to zero."
+    },
+    {
+      "question": "What is the role of a Headless CMS in mobile content management architecture?",
+      "options": [
+        "It renders the HTML templates directly for the mobile screen.",
+        "It provides database access keys to users.",
+        "It is a backend-only content repository that delivers content as data via an API (REST/GraphQL).",
+        "It is an app store publishing service."
+      ],
+      "answer": "It is a backend-only content repository that delivers content as data via an API (REST/GraphQL).",
+      "explanation": "A Headless CMS focuses exclusively on content modeling and API delivery, decoupling content creation from the final frontend rendering application."
+    },
+    {
+      "question": "What is the primary role of the Home Agent (HA) in Mobile IP?",
+      "options": [
+        "To allocate temporary local IPs to roaming devices.",
+        "To register visited network configurations.",
+        "To intercept packets addressed to the Mobile Node's home address and tunnel them to its care-of address.",
+        "To block unauthorized connections to the home network."
+      ],
+      "answer": "To intercept packets addressed to the Mobile Node's home address and tunnel them to its care-of address.",
+      "explanation": "The Home Agent is a router on the Mobile Node's home network that tunnels packets to the device's temporary care-of address when it is roaming."
+    },
+    {
+      "question": "What is 'Triangle Routing' in Mobile IP?",
+      "options": [
+        "Routing data across three base stations for triangulation.",
+        "Packets from CN to MN pass through HA, while packets from MN to CN go directly.",
+        "Packets bounce between MN, HA, and FA in a loop.",
+        "Routing data across three different cellular towers simultaneously."
+      ],
+      "answer": "Packets from CN to MN pass through HA, while packets from MN to CN go directly.",
+      "explanation": "In standard Mobile IP, incoming packets from a Correspondent Node (CN) are routed through the Home Agent (HA) to the Mobile Node (MN), but outgoing packets from the MN go directly to the CN. This asymmetric path resembles a triangle."
+    },
+    {
+      "question": "Which of the following is a key system-level function of a mobile operating system?",
+      "options": [
+        "Running web searches",
+        "App sandboxing and permission management",
+        "Syncing corporate databases",
+        "Generating PDF reports"
+      ],
+      "answer": "App sandboxing and permission management",
+      "explanation": "Security management (isolating application files and governing permissions for hardware access) is a fundamental operating system function."
+    },
+    {
+      "question": "What does App Sandboxing do in a mobile operating system?",
+      "options": [
+        "It speeds up application compile times.",
+        "It restricts each app to its own private directory and resources, preventing unauthorized cross-app access.",
+        "It runs applications inside virtual browsers.",
+        "It translates Java bytecode to native code."
+      ],
+      "answer": "It restricts each app to its own private directory and resources, preventing unauthorized cross-app access.",
+      "explanation": "Sandboxing isolates application runtime environments and local storage so that malicious apps cannot read data from other applications."
+    },
+    {
+      "question": "What characterizes a Thick Client mobile architecture?",
+      "options": [
+        "The mobile client acts only as a display layer, offloading all logic to the server.",
+        "Most business processing logic and database storage reside locally on the mobile device, allowing offline operation.",
+        "The app requires a constant high-speed fiber connection.",
+        "The database is distributed across cellular towers."
+      ],
+      "answer": "Most business processing logic and database storage reside locally on the mobile device, allowing offline operation.",
+      "explanation": "Thick client architectures do local processing, storing database files locally and syncing with the server only when connectivity is available."
+    },
+    {
+      "question": "In what scenario is a Thin Client mobile architecture highly advantageous?",
+      "options": [
+        "When the application must work seamlessly in areas with no cellular network.",
+        "When device storage and hardware processing capabilities are highly constrained.",
+        "When local data access speed is the highest priority.",
+        "When peer-to-peer data sharing is required."
+      ],
+      "answer": "When device storage and hardware processing capabilities are highly constrained.",
+      "explanation": "Thin clients consume negligible local storage and CPU power because processing is delegated to servers, making them ideal for lower-spec hardware."
+    },
+    {
+      "question": "What database replication mode requires a client transaction to commit on all replicas before returning success to the user?",
+      "options": [
+        "Synchronous Replication",
+        "Asynchronous Replication",
+        "Active Replication",
+        "Dynamic Replication"
+      ],
+      "answer": "Synchronous Replication",
+      "explanation": "Synchronous replication prioritizes consistency, locking transaction flows until all replicas acknowledge the update, which can cause delays over mobile links."
+    },
+    {
+      "question": "Why is Asynchronous Replication generally preferred for mobile database environments?",
+      "options": [
+        "It ensures absolute consistency immediately.",
+        "It allows local offline commits and propagates updates when connectivity returns, preventing network blocks.",
+        "It uses less encryption overhead.",
+        "It requires no database server."
+      ],
+      "answer": "It allows local offline commits and propagates updates when connectivity returns, preventing network blocks.",
+      "explanation": "Asynchronous replication allows offline transactions to complete instantly on the local database and synchronizes with the server in the background."
+    },
+    {
+      "question": "Which mobile computing application domain includes technologies like tele-consultations and remote sensor monitoring?",
+      "options": [
+        "M-Commerce",
+        "mHealth (Mobile Healthcare)",
+        "mLearning",
+        "Fleet Tracking"
+      ],
+      "answer": "mHealth (Mobile Healthcare)",
+      "explanation": "mHealth covers medical and public health practices supported by mobile devices, wearables, and remote sensor diagnostics."
+    },
+    {
+      "question": "What is the primary role of an Actuator in an IoT or robotic system?",
+      "options": [
+        "To measure physical environmental conditions.",
+        "To convert electrical controller signals into physical actions or movements.",
+        "To store data in non-volatile memory.",
+        "To route network packets between devices."
+      ],
+      "answer": "To convert electrical controller signals into physical actions or movements.",
+      "explanation": "Actuators are the output mechanism of robotic systems, executing physical tasks like opening valves or moving joints based on controller signals."
+    },
+    {
+      "question": "Which of the following is an example of an actuator commonly found in smartphones?",
+      "options": [
+        "Ambient light sensor",
+        "Vibration / Haptic feedback motor",
+        "GPS receiver module",
+        "Gyroscope IC"
+      ],
+      "answer": "Vibration / Haptic feedback motor",
+      "explanation": "Smartphone vibration motors convert electrical signals from the motherboard into physical mechanical feedback (haptics), acting as actuators."
+    },
+    {
+      "question": "Which transport protocol guarantees reliable, in-order packet delivery using acknowledgments and connection handshake?",
+      "options": [
+        "UDP",
+        "TCP",
+        "IP",
+        "ICMP"
+      ],
+      "answer": "TCP",
+      "explanation": "TCP is a connection-oriented protocol that handles packet sequencing, checks for losses, and retransmits missing segments to ensure reliable delivery."
+    },
+    {
+      "question": "Why does standard TCP performance degrade over wireless networks in mobile computing?",
+      "options": [
+        "Because mobile operating systems block TCP sockets.",
+        "TCP interprets wireless packet drops (due to fading/handover) as network congestion, throttling transmission rates unnecessarily.",
+        "Wireless headers are too large for TCP packets.",
+        "Because TCP does not support IPv6."
+      ],
+      "answer": "TCP interprets wireless packet drops (due to fading/handover) as network congestion, throttling transmission rates unnecessarily.",
+      "explanation": "Standard TCP assumes packet loss is due to congestion. In mobile links, drops are often due to radio noise, so TCP slows down transmission rates, leading to poor throughput."
+    },
+    {
+      "question": "Which transport layer protocol is preferred for real-time mobile video streaming and gaming where low latency is critical?",
+      "options": [
+        "TCP",
+        "UDP",
+        "FTP",
+        "TLS"
+      ],
+      "answer": "UDP",
+      "explanation": "UDP has no connection setup overhead and doesn't retransmit lost packets, making it faster and better for real-time streams like video calls and games."
+    },
+    {
+      "question": "What is Attenuation in wireless transmission?",
+      "options": [
+        "The interference of two different signals.",
+        "The gradual weakening of signal strength as it propagates through a medium.",
+        "The reflection of radio waves off buildings.",
+        "The noise added by electrical motors."
+      ],
+      "answer": "The gradual weakening of signal strength as it propagates through a medium.",
+      "explanation": "Attenuation refers to the loss of signal power over distance, which happens as radio waves are absorbed or scattered by the atmosphere and obstacles."
+    },
+    {
+      "question": "Which signal degradation effect is caused by radio waves reflecting off buildings, arriving at the receiver via multiple paths at slightly different times?",
+      "options": [
+        "Attenuation",
+        "Multipath propagation / Fading",
+        "Atmospheric noise",
+        "Adjacent channel bleed"
+      ],
+      "answer": "Multipath propagation / Fading",
+      "explanation": "Multipath propagation occurs when radio waves bounce off surfaces, causing phase interference and fading at the receiver."
+    },
+    {
+      "question": "Which mobile development tool compiles source code, signs it with developer certificates, and packages it into an APK or IPA file?",
+      "options": [
+        "Emulator",
+        "Build System (e.g. Gradle / Xcode Build)",
+        "Code Editor",
+        "Debugger"
+      ],
+      "answer": "Build System (e.g. Gradle / Xcode Build)",
+      "explanation": "Build tools like Gradle (Android) and Xcode Build (iOS) compile code, link assets, sign binaries with security keys, and bundle them into deployable packages."
+    },
+    {
+      "question": "What is the primary difference between a Mobile Emulator and a Mobile Simulator?",
+      "options": [
+        "Emulators compile binary packages; Simulators do not.",
+        "Emulators mimic device hardware and architecture; Simulators only mimic the software behavior and UI APIs.",
+        "Simulators are faster and run on device batteries.",
+        "Emulators require Internet access."
+      ],
+      "answer": "Emulators mimic device hardware and architecture; Simulators only mimic the software behavior and UI APIs.",
+      "explanation": "Emulators recreate the hardware architecture (often translating processor instructions), whereas Simulators execute code natively on the host system, running a software wrapper."
+    },
+    {
+      "question": "Which dedicated hardware element in modern iPhones secure biometrics (Face ID/Touch ID) and handles cryptographic keys?",
+      "options": [
+        "A-series CPU cores",
+        "Secure Enclave",
+        "Metal GPU",
+        "iCloud vault"
+      ],
+      "answer": "Secure Enclave",
+      "explanation": "The Secure Enclave is an isolated coprocessor built into Apple chips that stores biometric data and runs cryptographic operations independently of the main OS."
+    },
+    {
+      "question": "In mobile computing, what is 'Device Mobility'?",
+      "options": [
+        "The user can access their accounts from any physical computer.",
+        "The client device can move between different IP networks while preserving active communication sessions.",
+        "The screen adapts its orientation automatically.",
+        "The battery can be replaced easily."
+      ],
+      "answer": "The client device can move between different IP networks while preserving active communication sessions.",
+      "explanation": "Device mobility means a client can change its point of connection (and IP address) while maintaining open socket connections using protocols like Mobile IP."
+    },
+    {
+      "question": "What is the role of the WAP Gateway in a WAP architecture?",
+      "options": [
+        "To route cellular voice calls.",
+        "To translate between WAP protocols (used on mobile networks) and standard WWW protocols (HTTP/TCP/IP).",
+        "To host database files.",
+        "To encrypt local SIM data."
+      ],
+      "answer": "To translate between WAP protocols (used on mobile networks) and standard WWW protocols (HTTP/TCP/IP).",
+      "explanation": "WAP Gateways bridge WAP microbrowsers with standard web servers, translating mobile requests into HTTP and encoding HTML pages into compact WML binary streams."
+    },
+    {
+      "question": "Which layer of the WAP protocol stack corresponds directly to standard Transport Layer Security (TLS/SSL) on the Internet?",
+      "options": [
+        "WDP",
+        "WTP",
+        "WTLS",
+        "WSP"
+      ],
+      "answer": "WTLS",
+      "explanation": "Wireless Transport Layer Security (WTLS) provides security features (privacy, data integrity, and authentication) and is optimized for low-bandwidth mobile networks."
+    },
+    {
+      "question": "What markup language is specifically used to structure WAP microbrowser pages?",
+      "options": [
+        "HTML5",
+        "WML (Wireless Markup Language)",
+        "JSON",
+        "YAML"
+      ],
+      "answer": "WML (Wireless Markup Language)",
+      "explanation": "WML is an XML-based markup language optimized for small screens, keyboard navigation, and low-bandwidth connections typical of early mobile devices."
+    },
+    {
+      "question": "What is the function of the Serving GPRS Support Node (SGSN)?",
+      "options": [
+        "It routes packets to/from mobile stations within its service area and tracks device location.",
+        "It converts text pages to voice messages.",
+        "It generates encryption keys for SIM cards.",
+        "It links the cellular network with the public internet."
+      ],
+      "answer": "It routes packets to/from mobile stations within its service area and tracks device location.",
+      "explanation": "The SGSN is responsible for packet delivery, routing, mobility management (location tracking), and security functions for mobile devices within its service zone."
+    },
+    {
+      "question": "What is the function of the Gateway GPRS Support Node (GGSN)?",
+      "options": [
+        "It acts as an interface between the internal GPRS network and external packet-switched networks like the Internet.",
+        "It allocates time slots on the radio towers.",
+        "It stores the user's billing records locally.",
+        "It authenticates incoming SIM queries."
+      ],
+      "answer": "It acts as an interface between the internal GPRS network and external packet-switched networks like the Internet.",
+      "explanation": "The GGSN is the router that connects the GPRS mobile network to external packet networks, routing packets and assigning IP addresses to mobile nodes."
+    },
+    {
+      "question": "In a cellular network, what is 'Frequency Reuse'?",
+      "options": [
+        "Using the same frequency channel for all cells in a cluster.",
+        "Reusing the same frequency channels in non-adjacent cells separated by a minimum distance to minimize interference.",
+        "Broadcasting voice and data on the same channel.",
+        "Modulating AM waves to FM bands."
+      ],
+      "answer": "Reusing the same frequency channels in non-adjacent cells separated by a minimum distance to minimize interference.",
+      "explanation": "Frequency reuse allows adjacent cells to use different frequency bands to avoid crosstalk, while reusing the same frequencies in distant cells to maximize capacity."
+    },
+    {
+      "question": "What does a GSM macro cell provide?",
+      "options": [
+        "High capacity inside small offices.",
+        "Wide area coverage, typically in rural or suburban environments.",
+        "Directional satellite beams.",
+        "Underground tunnel signals."
+      ],
+      "answer": "Wide area coverage, typically in rural or suburban environments.",
+      "explanation": "Macro cells provide large coverage zones, with base station antennas placed on tall towers or buildings to cover vast rural or suburban areas."
+    },
+    {
+      "question": "Which J2EE container is responsible for running business components like Enterprise JavaBeans (EJBs)?",
+      "options": [
+        "Web Container",
+        "EJB Container",
+        "Applet Container",
+        "Database Container"
+      ],
+      "answer": "EJB Container",
+      "explanation": "The EJB Container provides system services (transactions, security, lifecycle management) and executes the Enterprise JavaBeans business components."
+    },
+    {
+      "question": "What does J2ME stand for?",
+      "options": [
+        "Java 2 Enterprise Edition",
+        "Java 2 Micro Edition",
+        "Java 2 Mobile Extension",
+        "Java 2 Machine Engine"
+      ],
+      "answer": "Java 2 Micro Edition",
+      "explanation": "J2ME stands for Java 2 Micro Edition, which is a Java platform designed for resource-constrained embedded and mobile hardware."
+    },
+    {
+      "question": "Which component in a mobile ad-hoc network (MANET) is responsible for routing data packets?",
+      "options": [
+        "A centralized base station router",
+        "A dedicated server node",
+        "Every mobile node in the network acts as a router.",
+        "A satellite uplink gateway"
+      ],
+      "answer": "Every mobile node in the network acts as a router.",
+      "explanation": "Because MANETs are infrastructure-less, nodes cooperate by forwarding routing packets for one another to enable multi-hop communications."
+    },
+    {
+      "question": "Which MANET variant connects moving vehicles wirelessly to coordinate traffic safety and navigation?",
+      "options": [
+        "VANET",
+        "WSN",
+        "PAN",
+        "SAN"
+      ],
+      "answer": "VANET",
+      "explanation": "VANET (Vehicular Ad-hoc Network) uses ad-hoc wireless connections to facilitate communication between vehicles and roadside units."
+    },
+    {
+      "question": "What peak upload speed is supported by standard 4G LTE?",
+      "options": [
+        "10 Mbps",
+        "50 Mbps",
+        "100 Mbps",
+        "500 Mbps"
+      ],
+      "answer": "50 Mbps",
+      "explanation": "Standard 4G LTE supports theoretical peak data rates of 100 Mbps for download and 50 Mbps for upload."
+    },
+    {
+      "question": "Which iOS layer contains multimedia frameworks like AVFoundation and Core Graphics?",
+      "options": [
+        "Cocoa Touch",
+        "Media Layer",
+        "Core Services",
+        "Core OS"
+      ],
+      "answer": "Media Layer",
+      "explanation": "The Media layer contains the graphics, audio, and video frameworks necessary to render and manage rich multimedia on iOS."
+    },
+    {
+      "question": "What is the function of guard bands in Frequency Division Multiplexing (FDM)?",
+      "options": [
+        "To boost the signal strength.",
+        "To separate adjacent frequency channels and prevent overlapping interference.",
+        "To encrypt data packets.",
+        "To synchronize timeslots."
+      ],
+      "answer": "To separate adjacent frequency channels and prevent overlapping interference.",
+      "explanation": "Guard bands are unused slivers of frequency spectrum placed between channels to prevent crosstalk and adjacent channel interference."
+    },
+    {
+      "question": "What is the primary advantage of Time Division Multiplexing (TDM) over FDM?",
+      "options": [
+        "It requires no synchronization.",
+        "It divides the medium into frequencies, avoiding any delays.",
+        "It is digital-friendly and eliminates the need for guard bands, preventing bandwidth wastage.",
+        "It works better for continuous analog signals."
+      ],
+      "answer": "It is digital-friendly and eliminates the need for guard bands, preventing bandwidth wastage.",
+      "explanation": "TDM assigns the entire bandwidth to a single channel for a short time slice. It does not require guard bands, making it highly efficient for digital transmission."
+    },
+    {
+      "question": "Which multiplexing technology assigns unique codes to each user, allowing all users to share the same frequency spectrum simultaneously?",
+      "options": [
+        "FDM",
+        "TDM",
+        "CDMA",
+        "WDM"
+      ],
+      "answer": "CDMA",
+      "explanation": "CDMA uses spread-spectrum technology, allowing multiple users to transmit simultaneously on the same frequency by coding each signal."
+    },
+    {
+      "question": "Which IEEE standard defines wireless local area networks (WLAN) and is branded as Wi-Fi?",
+      "options": [
+        "802.3",
+        "802.11",
+        "802.15",
+        "802.16"
+      ],
+      "answer": "802.11",
+      "explanation": "IEEE 802.11 is the set of standards that defines MAC and physical layer protocols for implementing Wi-Fi networks."
+    },
+    {
+      "question": "Which version of the 802.11 standard is also known as Wi-Fi 6?",
+      "options": [
+        "802.11n",
+        "802.11ac",
+        "802.11ax",
+        "802.11g"
+      ],
+      "answer": "802.11ax",
+      "explanation": "IEEE 802.11ax is branded as Wi-Fi 6, delivering improved capacity, efficiency, and performance in dense environments."
+    },
+    {
+      "question": "What does CSMA/CA stand for in wireless networks?",
+      "options": [
+        "Carrier Sense Multiple Access with Collision Avoidance",
+        "Carrier Sense Multiple Access with Collision Detection",
+        "Cellular System Mobile Access and Carrier Allocation",
+        "Cable System Multi-hop Access with Collision Avoidance"
+      ],
+      "answer": "Carrier Sense Multiple Access with Collision Avoidance",
+      "explanation": "CSMA/CA is the access protocol used by Wi-Fi. Nodes listen to the medium first and coordinate transmission times to avoid collisions."
+    },
+    {
+      "question": "In Mobile IP, how is the Care-of Address (CoA) obtained by a Mobile Node visiting a foreign network?",
+      "options": [
+        "It is statically configured in the home country.",
+        "It is provided dynamically by the Foreign Agent (FA) or via DHCP on the visited network.",
+        "It is requested from the Correspondent Node.",
+        "It is generated by the user's SIM card."
+      ],
+      "answer": "It is provided dynamically by the Foreign Agent (FA) or via DHCP on the visited network.",
+      "explanation": "When an MN moves to a foreign subnet, it receives a temporary CoA either from the Foreign Agent's advertisements or dynamically via DHCP."
+    },
+    {
+      "question": "What is the purpose of IP-in-IP encapsulation (tunneling) in Mobile IP?",
+      "options": [
+        "To compress packets to save bandwidth.",
+        "To forward packets addressed to the home network to the care-of address by wrapping them in a new IP header.",
+        "To encrypt data payloads for security.",
+        "To translate IPv4 headers into IPv6."
+      ],
+      "answer": "To forward packets addressed to the home network to the care-of address by wrapping them in a new IP header.",
+      "explanation": "Tunneling wraps the original packet (addressed to the MN's home IP) inside a new IP packet addressed to the current CoA, allowing it to traverse the Internet."
+    },
+    {
+      "question": "Which mobile app architecture style requires a persistent internet connection to function because all business logic and storage run on the server?",
+      "options": [
+        "Thick Client",
+        "Thin Client",
+        "Smart Client",
+        "Peer Client"
+      ],
+      "answer": "Thin Client",
+      "explanation": "Thin clients do minimal local processing. They rely on active server communication to compute and display results, failing in offline scenarios."
+    },
+    {
+      "question": "Which mobile database replication mode is ideal for mobile devices experiencing frequent offline periods?",
+      "options": [
+        "Synchronous Replication",
+        "Asynchronous Replication",
+        "Shared-memory Replication",
+        "Centralized Replication"
+      ],
+      "answer": "Asynchronous Replication",
+      "explanation": "Asynchronous replication allows transactions to commit locally while offline. Sync logs are queued and forwarded when a connection is re-established."
+    },
+    {
+      "question": "Which IoT component acts as the input device, sensing temperature or light, and contrasts with actuators?",
+      "options": [
+        "Transceiver",
+        "Controller",
+        "Sensor",
+        "Driver"
+      ],
+      "answer": "Sensor",
+      "explanation": "Sensors measure physical environment inputs (like heat or pressure) and convert them to electrical signals, acting as system inputs."
+    },
+    {
+      "question": "Why is UDP used for real-time applications like Mobile VoIP calls?",
+      "options": [
+        "It secures voice packets against eavesdropping.",
+        "It avoids connection setup handshakes and retransmission delays, ensuring minimal latency.",
+        "It compresses audio streams.",
+        "It handles network congestion better than TCP."
+      ],
+      "answer": "It avoids connection setup handshakes and retransmission delays, ensuring minimal latency.",
+      "explanation": "VoIP prioritizes speed. Since dropping a frame is better than delaying the stream for a retransmission, connectionless UDP is the ideal choice."
+    },
+    {
+      "question": "In wireless transmission, what does 'Path Loss' mean?",
+      "options": [
+        "The loss of routing tables.",
+        "The signal strength reduction over distance as it propagates through space.",
+        "The absorption of signals by concrete walls.",
+        "The interference from co-channel towers."
+      ],
+      "answer": "The signal strength reduction over distance as it propagates through space.",
+      "explanation": "Path loss (a form of attenuation) is the reduction in power density of an electromagnetic wave as it propagates through space from the transmitter."
+    },
+    {
+      "question": "Which testing tool in a Mobile IDP executes automated test flows on virtual device interfaces?",
+      "options": [
+        "Code Compiler",
+        "UI Test Runner (e.g. Espresso / XCUITest)",
+        "Code Profiler",
+        "SDK Manager"
+      ],
+      "answer": "UI Test Runner (e.g. Espresso / XCUITest)",
+      "explanation": "UI test runners automate click paths and swipe gestures on simulated or physical screens to verify user flows programmatically."
+    },
+    {
+      "question": "What is the primary role of the Application Server (Tier 2) in mobile computing?",
+      "options": [
+        "To store database logs permanently.",
+        "To execute business logic and process client requests, acting as middleware.",
+        "To manage local UI state.",
+        "To allocate radio frequencies."
+      ],
+      "answer": "To execute business logic and process client requests, acting as middleware.",
+      "explanation": "Tier 2 handles processing requests, validating data, executing computations, and accessing database resources on behalf of Tier 1 clients."
+    },
+    {
+      "question": "What is the function of the Visitor Location Register (VLR) in GSM?",
+      "options": [
+        "To store permanent subscriber records.",
+        "To track location and profiles of roaming subscribers currently within that MSC area.",
+        "To block stolen mobile hardware.",
+        "To verify SIM encryption keys."
+      ],
+      "answer": "To track location and profiles of roaming subscribers currently within that MSC area.",
+      "explanation": "VLR databases are updated dynamically as mobile devices roam across MSC boundaries, caching subscriber profiles locally to speed up routing."
+    },
+    {
+      "question": "Which J2ME profile provides user interface and networking APIs for mobile phones?",
+      "options": [
+        "CDC",
+        "CLDC",
+        "MIDP",
+        "OSGi"
+      ],
+      "answer": "MIDP",
+      "explanation": "The Mobile Information Device Profile (MIDP) contains GUI and persistence APIs tailored for standard cell phone displays and inputs."
+    },
+    {
+      "question": "What describes 'User Mobility' in mobile computing?",
+      "options": [
+        "The user can move their laptop between desk mounts.",
+        "The user can access their personal services and files from any device or terminal.",
+        "The user's cellular call is handed off between towers.",
+        "The screen brightness adjusts to ambient light."
+      ],
+      "answer": "The user can access their personal services and files from any device or terminal.",
+      "explanation": "User mobility means services follow the user, allowing them to access personal data from various physical terminals (e.g. logging into iCloud on any device)."
+    },
+    {
+      "question": "In WAP stack, what protocol handles the session layer, providing connection-oriented or connectionless requests?",
+      "options": [
+        "WSP (Wireless Session Protocol)",
+        "WTP",
+        "WTLS",
+        "WDP"
+      ],
+      "answer": "WSP (Wireless Session Protocol)",
+      "explanation": "WSP provides session services (comparable to HTTP/1.1) tailored for low-bandwidth mobile browsers, facilitating structured request-response exchanges."
+    },
+    {
+      "question": "What is a 'Softer Handover' in CDMA networks?",
+      "options": [
+        "Handover between two different network carriers.",
+        "Handover between different sectors of the same base station.",
+        "A handover initiated manually by the user.",
+        "Handover from Wi-Fi to cellular data."
+      ],
+      "answer": "Handover between different sectors of the same base station.",
+      "explanation": "Softer handover occurs when a mobile node moves between coverage sectors of the same BTS, allowing the base station to combine the signals directly."
+    },
+    {
+      "question": "Which iOS database system is used to persist object graphs locally?",
+      "options": [
+        "SQLite",
+        "Room",
+        "Core Data",
+        "SharedPreferences"
+      ],
+      "answer": "Core Data",
+      "explanation": "Core Data is Apple's native object graph and persistence framework, used to store application data in SQLite behind the scenes."
+    },
+    {
+      "question": "Which J2EE component is used to generate dynamic web pages at the server side?",
+      "options": [
+        "EJB",
+        "JSP (JavaServer Pages)",
+        "Application Client",
+        "EIS Layer"
+      ],
+      "answer": "JSP (JavaServer Pages)",
+      "explanation": "JSPs are text documents that combine static HTML template markup with Java code execution to produce dynamic web page responses."
+    },
+    {
+      "question": "Which ad-hoc network type consists of distributed autonomous sensors monitoring environmental parameters?",
+      "options": [
+        "VANET",
+        "WSN (Wireless Sensor Network)",
+        "MANET",
+        "WLAN"
+      ],
+      "answer": "WSN (Wireless Sensor Network)",
+      "explanation": "WSNs consist of spatial sensor nodes that measure factors like heat, sound, or moisture and coordinate to forward data wirelessly."
+    },
+    {
+      "question": "What frequency bands are typically allocated for 5G mmWave communications?",
+      "options": [
+        "900–1800 MHz",
+        "2.4–5 GHz",
+        "24–100 GHz",
+        "100–500 GHz"
+      ],
+      "answer": "24–100 GHz",
+      "explanation": "5G mmWave uses ultra-high frequency bands (typically between 24 and 100 GHz) to deliver high data speeds over short distances."
+    },
+    {
+      "question": "What does a WAP Gateway use to compress WML text files for transmission over cellular links?",
+      "options": [
+        "Binary compilation / tokenization",
+        "Zip file archiving",
+        "Image resizing",
+        "SSL tunneling"
+      ],
+      "answer": "Binary compilation / tokenization",
+      "explanation": "WAP Gateways convert text WML code into compact binary format to minimize payload sizes over slow 2G data connections."
+    },
+    {
+      "question": "Which Mobile IP component resides on a visited network and assists the Mobile Node in receiving forwarded packets?",
+      "options": [
+        "Home Agent",
+        "Foreign Agent",
+        "Correspondent Agent",
+        "Gateway Agent"
+      ],
+      "answer": "Foreign Agent",
+      "explanation": "The Foreign Agent (FA) acts as the default router for the Mobile Node on a visited network, helping route incoming and outgoing packets."
+    },
+    {
+      "question": "What is the primary role of the Equipment Identity Register (EIR) in a GSM network?",
+      "options": [
+        "To store SIM security authentication parameters.",
+        "To track call history logs.",
+        "To store IMEI database records and track stolen or blacklisted mobile devices.",
+        "To allocate IP addresses."
+      ],
+      "answer": "To store IMEI database records and track stolen or blacklisted mobile devices.",
+      "explanation": "The EIR maintains lists of device identities (IMEIs), allowing network operators to block blacklisted or stolen mobile hardware from accessing the network."
+    },
+    {
+      "question": "Which of the following describes 'Context Awareness' in mobile computing?",
+      "options": [
+        "The app requires high memory buffers.",
+        "The device senses and adapts its behavior to environmental factors like GPS location, motion, or light.",
+        "The device runs multiple operating systems.",
+        "The database is synced periodically."
+      ],
+      "answer": "The device senses and adapts its behavior to environmental factors like GPS location, motion, or light.",
+      "explanation": "Context awareness allows mobile applications to adapt dynamically based on user context (such as switching maps to night mode or providing location-based recommendations)."
+    },
+    {
+      "question": "Which guided transmission medium is constructed with two insulated copper wires twisted together to minimize crosstalk?",
+      "options": [
+        "Coaxial cable",
+        "Twisted-pair cable",
+        "Fiber Optic Cable",
+        "Waveguide"
+      ],
+      "answer": "Twisted-pair cable",
+      "explanation": "Twisted-pair cables spiral copper wires around each other to cancel out electromagnetic interference and crosstalk from adjacent pairs."
+    },
+    {
+      "question": "In a 3-tier mobile architecture, which tier runs relational databases or enterprise resource planning (ERP) services?",
+      "options": [
+        "Tier 1: Client",
+        "Tier 2: Application Server",
+        "Tier 3: Data Layer",
+        "Tier 4: Network Gateway"
+      ],
+      "answer": "Tier 3: Data Layer",
+      "explanation": "Tier 3 represents the backend database and legacy EIS systems that store and manage persistent application data."
+    },
+    {
+      "question": "Which layer of the Android stack manages the lifecycle of running applications and core activities?",
+      "options": [
+        "Linux Kernel",
+        "HAL",
+        "Java API Framework (Activity Manager)",
+        "ART"
+      ],
+      "answer": "Java API Framework (Activity Manager)",
+      "explanation": "The Activity Manager (inside the Java API Framework) governs application life cycle stages (creation, backgrounding, termination)."
+    },
+    {
+      "question": "Which WAP layer provides transaction-oriented request/response operations with optional reliability confirmation?",
+      "options": [
+        "WAE",
+        "WSP",
+        "WTP (Wireless Transaction Protocol)",
+        "WDP"
+      ],
+      "answer": "WTP (Wireless Transaction Protocol)",
+      "explanation": "WTP handles request-response transactions, providing lightweight reliability layers without the connection overhead of TCP."
+    },
+    {
+      "question": "What is the typical coverage radius of a GSM micro cell in urban areas?",
+      "options": [
+        "100 meters",
+        "1 kilometer",
+        "35 kilometers",
+        "100 kilometers"
+      ],
+      "answer": "1 kilometer",
+      "explanation": "Micro cells are designed to cover high-density urban areas, typically featuring a transmission radius of around 1 kilometer."
+    },
+    {
+      "question": "What programming language was developed by Apple in 2014 to replace Objective-C for iOS development?",
+      "options": [
+        "Kotlin",
+        "Swift",
+        "C#",
+        "Objective-C++"
+      ],
+      "answer": "Swift",
+      "explanation": "Swift was introduced by Apple in 2014 as a modern, type-safe, and faster programming language for building iOS and macOS apps."
+    },
+    {
+      "question": "Which mobile app architecture style acts as a middle ground, providing a rich native UI while relying on servers for cloud sync?",
+      "options": [
+        "Thick Client",
+        "Thin Client",
+        "Smart Client",
+        "Terminal Client"
+      ],
+      "answer": "Smart Client",
+      "explanation": "Smart clients run a native user interface layer locally but rely on backend cloud services for database storage and complex transactions."
+    },
+    {
+      "question": "In Mobile IP, what represents the permanent IP address assigned to the Mobile Node in its home network?",
+      "options": [
+        "Home Address",
+        "Care-of Address",
+        "Visitor Address",
+        "Correspondent Address"
+      ],
+      "answer": "Home Address",
+      "explanation": "The Home Address is the device's static IP address, which remains constant regardless of where the device roams."
+    },
+    {
+      "question": "Which IoT component is considered an output device that converts controller directives into mechanical motion?",
+      "options": [
+        "Thermistor",
+        "Actuator",
+        "Photodiode",
+        "Capacitor"
+      ],
+      "answer": "Actuator",
+      "explanation": "Actuators serve as the physical output mechanisms in automated systems, converting signals into mechanical forces (e.g., motor rotation)."
+    },
+    {
+      "question": "Which transport protocol is connectionless and does not guarantee packet arrival order?",
+      "options": [
+        "TCP",
+        "UDP",
+        "HTTP",
+        "FTP"
+      ],
+      "answer": "UDP",
+      "explanation": "UDP is connectionless and does not manage acknowledgments or sequence numbers, prioritizing speed over reliability."
+    },
+    {
+      "question": "In wireless signal propagation, what is 'Scattering'?",
+      "options": [
+        "The bending of waves around buildings.",
+        "The dispersion of radio waves in multiple directions when hitting rough surfaces or small obstacles.",
+        "The reflection off a flat mirror-like surface.",
+        "The absorption of signal energy by water."
+      ],
+      "answer": "The dispersion of radio waves in multiple directions when hitting rough surfaces or small obstacles.",
+      "explanation": "Scattering occurs when a signal hits objects smaller than its wavelength, scattering energy in all directions."
+    },
+    {
+      "question": "What is the function of an emulator in mobile application development?",
+      "options": [
+        "To compile code to bytecode.",
+        "To run the application inside a simulated hardware and processor environment on a developer computer.",
+        "To upload binaries to the App Store.",
+        "To profile database access latency."
+      ],
+      "answer": "To run the application inside a simulated hardware and processor environment on a developer computer.",
+      "explanation": "Emulators mimic physical hardware architectures, allowing developers to test mobile binaries on desktop machines."
+    },
+    {
+      "question": "Which frequency multiplexing variant uses guard bands to prevent adjacent signal overlap?",
+      "options": [
+        "FDM",
+        "TDM",
+        "CDMA",
+        "SDM"
+      ],
+      "answer": "FDM",
+      "explanation": "FDM divides the spectrum into separate frequency channels, requiring guard bands between channels to prevent signal overlap."
+    },
+    {
+      "question": "Which J2EE layer connects standard enterprise applications directly to relational databases?",
+      "options": [
+        "Client Tier",
+        "Web Tier",
+        "Business Tier",
+        "EIS (Enterprise Information System) Tier"
+      ],
+      "answer": "EIS (Enterprise Information System) Tier",
+      "explanation": "The EIS tier manages transaction databases, legacy databases, and mainframe resources for J2EE backends."
+    },
+    {
+      "question": "Which J2ME configuration is optimized for higher-end mobile devices with more memory and network bandwidth?",
+      "options": [
+        "CLDC",
+        "CDC (Connected Device Configuration)",
+        "MIDP",
+        "GSM Profile"
+      ],
+      "answer": "CDC (Connected Device Configuration)",
+      "explanation": "CDC is designed for resource-rich devices like smart TVs or high-end communicators, defining a standard JVM environment."
+    },
+    {
+      "question": "In Mobile IP, what does the Home Agent use to forward packets to the Mobile Node's care-of address?",
+      "options": [
+        "IP-in-IP Tunneling / Encapsulation",
+        "NAT translation",
+        "WAP Gateway",
+        "Domain Name Service"
+      ],
+      "answer": "IP-in-IP Tunneling / Encapsulation",
+      "explanation": "Tunneling encapsulates the original IP packet inside a new IP envelope addressed to the current CoA, directing it through the foreign network router."
+    },
+    {
+      "question": "Which XML parser allows you to pull events dynamically (like START_TAG, END_TAG) using a loop controlled by the developer?",
+      "options": [
+        "DOM Parser",
+        "SAX Parser",
+        "XMLPullParser",
+        "JSON Parser"
+      ],
+      "answer": "XMLPullParser",
+      "explanation": "XMLPullParser is pull-based. The application code controls the parsing loop, parsing tag tokens on-demand to optimize memory usage."
+    },
+    {
+      "question": "What is 'Session Mobility' in mobile computing?",
+      "options": [
+        "The user can run multiple web sessions simultaneously.",
+        "An active communication session (like a call or file transfer) continues seamlessly as the device moves between networks.",
+        "The user log-out session is encrypted.",
+        "The SIM card is transferred to another phone."
+      ],
+      "answer": "An active communication session (like a call or file transfer) continues seamlessly as the device moves between networks.",
+      "explanation": "Session mobility ensures active network sessions (such as VoIP calls or downloads) persist uninterrupted during network handovers."
+    },
+    {
+      "question": "Which WAP protocol provides datagram routing services over diverse underlying bearers like SMS or GPRS?",
+      "options": [
+        "WSP",
+        "WTP",
+        "WTLS",
+        "WDP (Wireless Datagram Protocol)"
+      ],
+      "answer": "WDP (Wireless Datagram Protocol)",
+      "explanation": "WDP is the transport layer protocol that translates data payloads into carrier-specific packets, adapting WAP to different cellular systems."
+    },
+    {
+      "question": "Which guided medium features a glass core that transmits data via light pulses, offering the highest bandwidth?",
+      "options": [
+        "Twisted-pair copper",
+        "Coaxial copper",
+        "Fiber Optic Cable",
+        "Hollow wave-guide"
+      ],
+      "answer": "Fiber Optic Cable",
+      "explanation": "Fiber optics use internal light refraction to carry digital pulses over glass or plastic fibers, achieving high bandwidth with zero EMI."
+    },
+    {
+      "question": "Which database repository is used permanently on a GSM network to check if a handset is certified or blacklisted?",
+      "options": [
+        "HLR",
+        "VLR",
+        "EIR (Equipment Identity Register)",
+        "AuC"
+      ],
+      "answer": "EIR (Equipment Identity Register)",
+      "explanation": "The EIR matches a handset's IMEI against white, gray, and black lists to block stolen or uncertified mobile hardware."
+    }
+  ]
+}
